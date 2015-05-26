@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @district.name %>
+</p>
+
+<p>
+  <strong>Province:</strong>
+  <%= @district.province.id %>
+  <%= @district.province.name %>
+</p>
+
+<%= link_to 'Edit', edit_province_district_path(@province, @district) %> |
+<%= link_to 'Back', province_districts_path(@province) %>

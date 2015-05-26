@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+
+  resources :credit_card_types
+
+  resources :food_categories
+
+  resources :item_categories
+
+  resources :customer_types
+
+  resources :object_types
+  
+  resources :countries do
+	  resources :provinces	do
+	    resources :districts
+	  end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

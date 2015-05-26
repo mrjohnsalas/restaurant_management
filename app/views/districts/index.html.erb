@@ -1,0 +1,29 @@
+<h1>Listing districts in <%= link_to @province.name, @province %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Province</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @districts.each do |district| %>
+      <tr>
+        <td><%= district.name %></td>
+        <td><%= district.province.id %></td>
+        <td><%= district.province.name %></td>
+        <td><%= link_to 'Show', province_district_path(@province, district) %></td>
+        <td><%= link_to 'Edit', edit_province_district_path(@province, district) %></td>
+        <td><%= link_to 'Destroy', province_district_path(@province, district), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New District', new_province_district_path(@province) %>
+<%= link_to 'Provinces', provinces_path %>
