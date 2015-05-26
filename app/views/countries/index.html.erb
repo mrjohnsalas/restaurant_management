@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th colspan="3"></th>
     </tr>
@@ -11,13 +12,14 @@
   <tbody>
     <% @countries.each do |country| %>
       <tr>
+        <td><%= country.id %></td>
         <td><%= country.name %></td>
-        <td><%= country.provinces.count %> provinces</td>
-        <td><%= link_to 'Show', country %></td>
-        <td><%= link_to 'Edit', edit_country_path(country) %></td>
-        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'View Provinces', country_provinces_path(country) %></td>
-        <td><%= link_to 'New Province', new_country_province_path(country) %></td>
+        <td>(<%= country.provinces.count %> provinces)</td>
+        <td>| <%= link_to 'Show', country %></td>
+        <td>| <%= link_to 'Edit', edit_country_path(country) %></td>
+        <td>| <%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'View Provinces', country_provinces_path(country) %></td>
+        <td>| <%= link_to 'New Province', new_country_province_path(country) %></td>
       </tr>
     <% end %>
   </tbody>

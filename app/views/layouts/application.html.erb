@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <%= link_to 'Welcome', root_path %><br>
+  <%= link_to 'Countries / Provinces / Districts', countries_path %><br>
+  <%= link_to 'Credit Card Types', credit_card_types_path %><br>
+  <%= link_to 'Object Types', object_types_path %><br>
+  <%= link_to 'Customer Types', customer_types_path %><br>
+  <%= link_to 'Item Categories', item_categories_path %><br>
+  <%= link_to 'Food Categories', food_categories_path %><br>
 <%= yield %>
 
 </body>

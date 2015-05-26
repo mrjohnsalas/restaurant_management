@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(version: 20150526171622) do
 
   create_table "provinces", force: true do |t|
     t.string   "name"
-    t.integer  "Country_id"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "provinces", ["Country_id"], name: "index_provinces_on_Country_id", using: :btree
+  add_index "provinces", ["country_id"], name: "index_provinces_on_country_id", using: :btree
 
 end

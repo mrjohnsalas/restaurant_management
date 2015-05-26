@@ -11,5 +11,5 @@
   <%= @district.province.name %>
 </p>
 
-<%= link_to 'Edit', edit_province_district_path(@province, @district) %> |
-<%= link_to 'Back', province_districts_path(@province) %>
+<%= link_to 'Edit', edit_country_province_district_path(@province.country, @province, @district) %> |
+<%= link_to 'Back', country_province_districts_path(@province.country, @province) %>

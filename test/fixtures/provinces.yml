@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
-#  Country_id :integer
+#  country_id :integer
 #  created_at :datetime
 #  updated_at :datetime
 #

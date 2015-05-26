@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', province_district_path(@province, @district) %> |
-<%= link_to 'Back', province_districts_path(@province) %>
+<%= link_to 'Show', country_province_district_path(@province.country, @province, @district) %> |
+<%= link_to 'Back', country_province_districts_path(@province.country, @province) %>

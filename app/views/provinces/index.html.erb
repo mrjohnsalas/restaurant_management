@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
-      <th>Country</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,15 +12,14 @@
   <tbody>
     <% @provinces.each do |province| %>
       <tr>
+        <td><%= province.id %></td>
         <td><%= province.name %></td>
-        <td><%= province.country.id %></td>
-        <td><%= province.country.name %></td>
-        <td><%= province.districts.count %> districts</td>
-        <td><%= link_to 'Show', country_province_path(@country, province) %></td>
-        <td><%= link_to 'Edit', edit_country_province_path(@country, province) %></td>
-        <td><%= link_to 'Destroy', country_province_path(@country, province), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'View Districts', province_districts_path(province) %></td>
-        <td><%= link_to 'New District', new_province_district_path(province) %></td>
+        <td>(<%= province.districts.count %> districts)</td>
+        <td>| <%= link_to 'Show', country_province_path(@country, province) %></td>
+        <td>| <%= link_to 'Edit', edit_country_province_path(@country, province) %></td>
+        <td>| <%= link_to 'Destroy', country_province_path(@country, province), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'View Districts', country_province_districts_path(@country, province) %></td>
+        <td>| <%= link_to 'New District', new_country_province_district_path(@country, province) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +28,5 @@
 <br>
 
 
-<%= link_to 'New Province', new_country_provinces_path(@country) %>
+<%= link_to 'New Province', new_country_province_path(@country) %>
 <%= link_to 'Countries', countries_path %>

@@ -2,6 +2,8 @@ class DistrictsController < ApplicationController
   before_action :set_district, only: [:show, :edit, :update, :destroy]
   before_action :set_province
   
+  respond_to :html
+  
   # GET /districts
   # GET /districts.json
   def index
@@ -30,7 +32,7 @@ class DistrictsController < ApplicationController
   def create
     @district = @province.districts.new(district_params)
     @district.save
-    respond_with(@province)
+    redirect_to country_province_districts_path(@province.country, @province)
 
     # respond_to do |format|
     #   if @district.save
@@ -47,7 +49,7 @@ class DistrictsController < ApplicationController
   # PATCH/PUT /districts/1.json
   def update
     @district.update(district_params)
-    respond_with(@province)
+    redirect_to country_province_districts_path(@province.country, @province)
     # respond_to do |format|
     #   if @district.update(district_params)
     #     format.html { redirect_to @district, notice: 'District was successfully updated.' }
@@ -63,7 +65,7 @@ class DistrictsController < ApplicationController
   # DELETE /districts/1.json
   def destroy
     @district.destroy
-    respond_with(@province)
+    redirect_to country_province_districts_path(@province.country, @province)
     # respond_to do |format|
     #   format.html { redirect_to districts_url, notice: 'District was successfully destroyed.' }
     #   format.json { head :no_content }

@@ -2,6 +2,8 @@ class ProvincesController < ApplicationController
   before_action :set_province, only: [:show, :edit, :update, :destroy]
   before_action :set_country
   
+  respond_to :html
+  
   # GET /provinces
   # GET /provinces.json
   def index
@@ -29,9 +31,8 @@ class ProvincesController < ApplicationController
   # POST /provinces.json
   def create
     @province = @country.provinces.new(province_params)
-
     @province.save
-    respond_with(@country)
+    redirect_to country_provinces_path(@country)
 
     # respond_to do |format|
     #   if @province.save
@@ -48,7 +49,7 @@ class ProvincesController < ApplicationController
   # PATCH/PUT /provinces/1.json
   def update
     @province.update(province_params)
-    respond_with(@country)
+    redirect_to country_provinces_path(@country)
     # respond_to do |format|
     #   if @province.update(province_params)
     #     format.html { redirect_to @province, notice: 'Province was successfully updated.' }
@@ -64,7 +65,7 @@ class ProvincesController < ApplicationController
   # DELETE /provinces/1.json
   def destroy
     @province.destroy
-    respond_with(@country)
+    redirect_to country_provinces_path(@country)
     # @province.destroy
     # respond_to do |format|
     #   format.html { redirect_to provinces_url, notice: 'Province was successfully destroyed.' }
@@ -84,6 +85,6 @@ class ProvincesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def province_params
-      params.require(:province).permit(:name, :Country_id)
+      params.require(:province).permit(:name, :country_id)
     end
 end
