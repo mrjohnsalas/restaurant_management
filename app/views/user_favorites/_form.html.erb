@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.label :object_type_id %><br />
+    <%= f.collection_select :object_type_id, ObjectType.order(:name),:id,:name, include_blank: true %>
   </div>
-  <div class="field">
-    <%= f.label :object_type_id %><br>
-    <%= f.text_field :object_type_id %>
+    <div class="field">
+    <%= f.label :object_id %><br>
+    <%= f.text_field :object_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

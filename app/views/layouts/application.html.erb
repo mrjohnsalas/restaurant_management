@@ -36,6 +36,8 @@
         <li><%= link_to 'My Cards', user_cards_path %></li>
         <li><%= link_to 'My Address', user_addresses_path %></li>
         <li><%= link_to 'My Restaurants', restaurants_path %></li>
+        <li><%= link_to 'My Favorites', user_favorites_path %></li>
+        <li><%= link_to 'My Points', user_points_path %></li>
       </ul>
     <% elsif current_user.user_type_id == 2 %>
 	    <p>Soy: PROVIDER</p>
@@ -49,6 +51,8 @@
 	    <ul>
         <li><%= link_to 'My Cards', user_cards_path %></li>
         <li><%= link_to 'My Address', user_addresses_path %></li>
+        <li><%= link_to 'My Favorites', user_favorites_path %></li>
+        <li><%= link_to 'My Points', user_points_path %></li>
       </ul>
     <% else %>
       <p>Soy: NADIE</p>

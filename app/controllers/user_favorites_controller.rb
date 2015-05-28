@@ -13,7 +13,7 @@ class UserFavoritesController < ApplicationController
   end
 
   def new
-    @user_favorite = UserFavorite.new
+    @user_favorite = current_user.user_favorites.build
     respond_with(@user_favorite)
   end
 
@@ -21,7 +21,7 @@ class UserFavoritesController < ApplicationController
   end
 
   def create
-    @user_favorite = UserFavorite.new(user_favorite_params)
+    @user_favorite = current_user.user_favorites.build(user_favorite_params)
     @user_favorite.save
     respond_with(@user_favorite)
   end
@@ -42,6 +42,6 @@ class UserFavoritesController < ApplicationController
     end
 
     def user_favorite_params
-      params.require(:user_favorite).permit(:user_id, :object_type_id)
+      params.require(:user_favorite).permit(:user_id, :object_type_id, :object_id)
     end
 end

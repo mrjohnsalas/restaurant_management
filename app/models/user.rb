@@ -8,5 +8,7 @@ class User < ActiveRecord::Base
   has_many :restaurants, dependent: :destroy
   has_many :user_cards, dependent: :destroy
   has_many :user_addresses, dependent: :destroy
+  has_many :user_favorites, dependent: :destroy
+  has_many :user_points, dependent: :destroy
   belongs_to :user_types
 end

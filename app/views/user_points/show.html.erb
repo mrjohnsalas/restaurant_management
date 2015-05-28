@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @user_point.quantity %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @user_point.restaurant.name %>
+</p>
+
+<%= link_to 'Edit', edit_user_point_path(@user_point) %> |
+<%= link_to 'Back', user_points_path %>

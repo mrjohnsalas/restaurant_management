@@ -1,0 +1,25 @@
+<%= form_for(@user_point) do |f| %>
+  <% if @user_point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_point.errors.count, "error") %> prohibited this user_point from being saved:</h2>
+
+      <ul>
+      <% @user_point.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :restaurant_id %><br />
+    <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id,:name, include_blank: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528202247) do
+ActiveRecord::Schema.define(version: 20150528220126) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -120,10 +120,22 @@ ActiveRecord::Schema.define(version: 20150528202247) do
     t.integer  "object_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "object_id"
   end
 
   add_index "user_favorites", ["object_type_id"], name: "index_user_favorites_on_object_type_id", using: :btree
   add_index "user_favorites", ["user_id"], name: "index_user_favorites_on_user_id", using: :btree
+
+  create_table "user_points", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_points", ["restaurant_id"], name: "index_user_points_on_restaurant_id", using: :btree
+  add_index "user_points", ["user_id"], name: "index_user_points_on_user_id", using: :btree
 
   create_table "user_types", force: true do |t|
     t.string   "name"

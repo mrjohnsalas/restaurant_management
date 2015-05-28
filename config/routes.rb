@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :user_points
+
   resources :restaurants
 
   resources :user_addresses
