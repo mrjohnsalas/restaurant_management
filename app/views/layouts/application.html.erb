@@ -12,30 +12,19 @@
   <p class="alert"><%= alert %></p>
   
     <p><%= link_to 'Welcome', root_path %></p>
-    <p><%= link_to 'Customer Types', customer_types_path %></p>
+    <p><%= link_to 'User Types', user_types_path %></p>
 
   <% if user_signed_in? %>
     <p>Mis Datos:</p>
-	  <p>Email: <%= current_user.email %></p>
-	  <p>First Name: <%= current_user.first_name %></p>
-	  <p>Last Name: <%= current_user.last_name %></p>
-	  <p>Phone 1: <%= current_user.phone_1 %></p>
-	  <p>Customer Type: <%= current_user.customer_type_id %></p>
-	  <p><%= image_tag current_user.avatar.url(:thumb) %></p>
-	  
-	  <% if current_user.customer_type_id == 1 %>
-	    <p>Soy: CUSTOMER</p>
-	    <p>Mis Links:</p>
-	    <ul>
-        <li></li>
-      </ul>
-    <% elsif current_user.customer_type_id == 2 %>
-	    <p>Soy: PROVIDER</p>
-	    <p>Mis Links:</p>
-	    <ul>
-        <li></li>
-      </ul>
-    <% elsif current_user.customer_type_id == 3 %>
+    <ul>
+      <li>Email: <%= current_user.email %></li>
+      <li>First Name: <%= current_user.first_name %></li>
+      <li>Last Name: <%= current_user.last_name %></li>
+      <li>Phone 1: <%= current_user.phone_1 %></li>
+      <li>User Type: <%= current_user.user_type_id %></li>
+      <p><%= image_tag current_user.avatar.url(:thumb) %></p>
+    </ul>
+	  <% if current_user.user_type_id == 1 %>
 	    <p>Soy: WEB MANAGER</p>
 	    <p>Mis Links:</p>
 	    <ul>
@@ -44,6 +33,18 @@
         <li><%= link_to 'Object Types', object_types_path %></li>
         <li><%= link_to 'Item Categories', item_categories_path %></li>
         <li><%= link_to 'Food Categories', food_categories_path %></li>
+      </ul>
+    <% elsif current_user.user_type_id == 2 %>
+	    <p>Soy: PROVIDER</p>
+	    <p>Mis Links:</p>
+	    <ul>
+        <li></li>
+      </ul>
+    <% elsif current_user.user_type_id == 3 %>
+	    <p>Soy: CUSTOMER</p>
+	    <p>Mis Links:</p>
+	    <ul>
+        <li></li>
       </ul>
     <% else %>
       <p>Soy: NADIE</p>

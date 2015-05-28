@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :user_favorites
+
   #devise_for :users, :skip => [:registrations]
   devise_for :users
   root 'welcome#index'
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :item_categories
 
-  resources :customer_types
+  resources :user_types
 
   resources :object_types
   

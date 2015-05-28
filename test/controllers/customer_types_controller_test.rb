@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class CustomerTypesControllerTest < ActionController::TestCase
+class UserTypesControllerTest < ActionController::TestCase
   setup do
-    @customer_type = customer_types(:one)
+    @user_type = user_types(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:customer_types)
+    assert_not_nil assigns(:user_types)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class CustomerTypesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create customer_type" do
-    assert_difference('CustomerType.count') do
-      post :create, customer_type: { name: @customer_type.name }
+  test "should create user_type" do
+    assert_difference('UserType.count') do
+      post :create, user_type: { name: @user_type.name }
     end
 
-    assert_redirected_to customer_type_path(assigns(:customer_type))
+    assert_redirected_to user_type_path(assigns(:user_type))
   end
 
-  test "should show customer_type" do
-    get :show, id: @customer_type
+  test "should show user_type" do
+    get :show, id: @user_type
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @customer_type
+    get :edit, id: @user_type
     assert_response :success
   end
 
-  test "should update customer_type" do
-    patch :update, id: @customer_type, customer_type: { name: @customer_type.name }
-    assert_redirected_to customer_type_path(assigns(:customer_type))
+  test "should update user_type" do
+    patch :update, id: @user_type, user_type: { name: @user_type.name }
+    assert_redirected_to user_type_path(assigns(:user_type))
   end
 
-  test "should destroy customer_type" do
-    assert_difference('CustomerType.count', -1) do
-      delete :destroy, id: @customer_type
+  test "should destroy user_type" do
+    assert_difference('UserType.count', -1) do
+      delete :destroy, id: @user_type
     end
 
-    assert_redirected_to customer_types_path
+    assert_redirected_to user_types_path
   end
 end

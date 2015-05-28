@@ -43,8 +43,8 @@
   </div>
   
   <div class="field">
-    <%= f.label :customer_type_id %><br />
-    <%= f.collection_select :customer_type_id, CustomerType.order(:name),:id,:name, include_blank: true %>
+    <%= f.label :user_type_id %><br />
+    <%= f.collection_select :user_type_id, UserType.order(:name),:id,:name, include_blank: true %>
   </div>
   
   <div class="field">

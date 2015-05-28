@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: customer_types
+# Table name: user_types
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,6 +8,6 @@
 #  updated_at :datetime
 #
 
-class CustomerType < ActiveRecord::Base
+class UserType < ActiveRecord::Base
     validates :name, presence: true
 end
