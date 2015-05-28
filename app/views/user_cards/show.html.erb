@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @user_card.card_number %>
+</p>
+
+<p>
+  <strong>Is default:</strong>
+  <%= @user_card.is_default %>
+</p>
+
+<p>
+  <strong>Credit card type:</strong>
+  <%= @user_card.credit_card_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_user_card_path(@user_card) %> |
+<%= link_to 'Back', user_cards_path %>

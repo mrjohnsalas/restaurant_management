@@ -1,0 +1,47 @@
+<h1>Listing restaurants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone 1</th>
+      <th>Phone 2</th>
+      <th>Email 1</th>
+      <th>Email 2</th>
+      <th>Web page</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>Instagram</th>
+      <th>Allow point</th>
+      <th>Min points</th>
+      <th>Object type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.phone_1 %></td>
+        <td><%= restaurant.phone_2 %></td>
+        <td><%= restaurant.email_1 %></td>
+        <td><%= restaurant.email_2 %></td>
+        <td><%= restaurant.web_page %></td>
+        <td><%= restaurant.facebook %></td>
+        <td><%= restaurant.twitter %></td>
+        <td><%= restaurant.instagram %></td>
+        <td><%= restaurant.allow_point %></td>
+        <td><%= restaurant.min_points %></td>
+        <td><%= restaurant.object_type.name %></td>
+        <td><%= link_to 'Show', restaurant %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant', new_restaurant_path %>

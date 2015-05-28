@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528140733) do
+ActiveRecord::Schema.define(version: 20150528202247) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -64,6 +64,56 @@ ActiveRecord::Schema.define(version: 20150528140733) do
   end
 
   add_index "provinces", ["country_id"], name: "index_provinces_on_country_id", using: :btree
+
+  create_table "restaurants", force: true do |t|
+    t.string   "name"
+    t.string   "phone_1"
+    t.string   "phone_2"
+    t.string   "email_1"
+    t.string   "email_2"
+    t.string   "web_page"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.boolean  "allow_point"
+    t.integer  "min_points"
+    t.integer  "user_id"
+    t.integer  "object_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
+  add_index "restaurants", ["object_type_id"], name: "index_restaurants_on_object_type_id", using: :btree
+  add_index "restaurants", ["user_id"], name: "index_restaurants_on_user_id", using: :btree
+
+  create_table "user_addresses", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.boolean  "is_default"
+    t.integer  "district_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_addresses", ["district_id"], name: "index_user_addresses_on_district_id", using: :btree
+  add_index "user_addresses", ["user_id"], name: "index_user_addresses_on_user_id", using: :btree
+
+  create_table "user_cards", force: true do |t|
+    t.string   "card_number"
+    t.boolean  "is_default"
+    t.integer  "credit_card_type_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_cards", ["credit_card_type_id"], name: "index_user_cards_on_credit_card_type_id", using: :btree
+  add_index "user_cards", ["user_id"], name: "index_user_cards_on_user_id", using: :btree
 
   create_table "user_favorites", force: true do |t|
     t.integer  "user_id"

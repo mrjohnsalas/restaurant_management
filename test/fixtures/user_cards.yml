@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  card_number: MyString
+  is_default: false
+  credit_card_type_id: 
+  user_id: 
+
+two:
+  card_number: MyString
+  is_default: false
+  credit_card_type_id: 
+  user_id: 

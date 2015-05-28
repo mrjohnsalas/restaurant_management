@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Phone 1:</strong>
+  <%= @restaurant.phone_1 %>
+</p>
+
+<p>
+  <strong>Phone 2:</strong>
+  <%= @restaurant.phone_2 %>
+</p>
+
+<p>
+  <strong>Email 1:</strong>
+  <%= @restaurant.email_1 %>
+</p>
+
+<p>
+  <strong>Email 2:</strong>
+  <%= @restaurant.email_2 %>
+</p>
+
+<p>
+  <strong>Web page:</strong>
+  <%= @restaurant.web_page %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @restaurant.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @restaurant.twitter %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @restaurant.instagram %>
+</p>
+
+<p>
+  <strong>Allow point:</strong>
+  <%= @restaurant.allow_point %>
+</p>
+
+<p>
+  <strong>Min points:</strong>
+  <%= @restaurant.min_points %>
+</p>
+
+<p>
+  <strong>Object type:</strong>
+  <%= @restaurant.object_type.name %>
+</p>
+<p>
+  <%= image_tag @restaurant.logo.url(:medium) %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>

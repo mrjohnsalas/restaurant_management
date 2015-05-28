@@ -10,4 +10,5 @@
 
 class UserType < ActiveRecord::Base
     validates :name, presence: true
+    has_many :users, dependent: :destroy
 end

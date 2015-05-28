@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  is_default: false
+  district_id: 
+  user_id: 
+
+two:
+  name: MyString
+  address: MyString
+  is_default: false
+  district_id: 
+  user_id: 

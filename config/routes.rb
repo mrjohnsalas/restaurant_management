@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 
+  resources :restaurants
+
+  resources :user_addresses
+  resources :user_cards
+
   resources :user_favorites
 
   #devise_for :users, :skip => [:registrations]

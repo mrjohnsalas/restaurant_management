@@ -11,5 +11,6 @@
 
 class District < ActiveRecord::Base
   belongs_to :province
+  has_many :user_address, dependent: :destroy
   validates :name, presence: true
 end

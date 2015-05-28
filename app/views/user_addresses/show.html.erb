@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user_address.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user_address.address %>
+</p>
+
+<p>
+  <strong>Is default:</strong>
+  <%= @user_address.is_default %>
+</p>
+
+<p>
+  <strong>District:</strong>
+  <%= @user_address.district.name %>
+</p>
+
+<%= link_to 'Edit', edit_user_address_path(@user_address) %> |
+<%= link_to 'Back', user_addresses_path %>
