@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527201950) do
+ActiveRecord::Schema.define(version: 20150528054511) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -88,6 +88,10 @@ ActiveRecord::Schema.define(version: 20150527201950) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_1"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["customer_type_id"], name: "index_users_on_customer_type_id", using: :btree

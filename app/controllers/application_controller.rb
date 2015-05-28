@@ -9,13 +9,13 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| 
-      u.permit(:password, :password_confirmation, :current_password, :customer_type_id, :first_name, :last_name, :phone_1) 
+      u.permit(:password, :password_confirmation, :current_password, :customer_type_id, :first_name, :last_name, :phone_1, :avatar) 
     }
     devise_parameter_sanitizer.for(:sign_in) { |u| 
-      u.permit(:password, :password_confirmation, :current_password, :customer_type_id, :first_name, :last_name, :phone_1, :email) 
+      u.permit(:password, :password_confirmation, :current_password, :customer_type_id, :first_name, :last_name, :phone_1, :email, :avatar) 
     }
     devise_parameter_sanitizer.for(:sign_up) { |u| 
-      u.permit(:password, :password_confirmation, :current_password, :customer_type_id, :first_name, :last_name, :phone_1, :email) 
+      u.permit(:password, :password_confirmation, :current_password, :customer_type_id, :first_name, :last_name, :phone_1, :email, :avatar) 
     }
   end
 end

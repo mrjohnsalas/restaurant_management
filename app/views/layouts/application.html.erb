@@ -12,6 +12,7 @@
   <p class="alert"><%= alert %></p>
   
     <p><%= link_to 'Welcome', root_path %></p>
+    <p><%= link_to 'Customer Types', customer_types_path %></p>
 
   <% if user_signed_in? %>
     <p>Mis Datos:</p>
@@ -20,6 +21,7 @@
 	  <p>Last Name: <%= current_user.last_name %></p>
 	  <p>Phone 1: <%= current_user.phone_1 %></p>
 	  <p>Customer Type: <%= current_user.customer_type_id %></p>
+	  <p><%= image_tag current_user.avatar.url(:thumb) %></p>
 	  
 	  <% if current_user.customer_type_id == 1 %>
 	    <p>Soy: CUSTOMER</p>
@@ -40,7 +42,6 @@
         <li><%= link_to 'Countries / Provinces / Districts', countries_path %></li>
         <li><%= link_to 'Credit Card Types', credit_card_types_path %></li>
         <li><%= link_to 'Object Types', object_types_path %></li>
-        <li><%= link_to 'Customer Types', customer_types_path %></li>
         <li><%= link_to 'Item Categories', item_categories_path %></li>
         <li><%= link_to 'Food Categories', food_categories_path %></li>
       </ul>
