@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Credit card type:</strong>
+  <%= @local_card.credit_card_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_local_local_card_path(@local.restaurant, @local, @local_card) %> |
+<%= link_to 'Back', restaurant_local_local_cards_path(@local.restaurant, @local) %>
+
+

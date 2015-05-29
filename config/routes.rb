@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
-  
-
   root 'welcome#index'
 
   resources :restaurants do
     resources :locals do
       resources :local_photos
       resources :local_deliveries
+      resources :local_cards
     end
   end
 

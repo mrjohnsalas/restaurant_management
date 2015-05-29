@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529205758) do
+ActiveRecord::Schema.define(version: 20150529220434) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 20150529205758) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "local_cards", force: true do |t|
+    t.integer  "local_id"
+    t.integer  "credit_card_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "local_cards", ["credit_card_type_id"], name: "index_local_cards_on_credit_card_type_id", using: :btree
+  add_index "local_cards", ["local_id"], name: "index_local_cards_on_local_id", using: :btree
 
   create_table "local_deliveries", force: true do |t|
     t.time     "start_time"
