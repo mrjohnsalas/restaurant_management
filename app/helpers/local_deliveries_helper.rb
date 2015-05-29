@@ -1,0 +1,2 @@
+module LocalDeliveriesHelper
+end

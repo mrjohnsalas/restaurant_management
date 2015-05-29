@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529153126) do
+ActiveRecord::Schema.define(version: 20150529205758) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -49,6 +49,18 @@ ActiveRecord::Schema.define(version: 20150529153126) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "local_deliveries", force: true do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "local_id"
+    t.integer  "district_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "local_deliveries", ["district_id"], name: "index_local_deliveries_on_district_id", using: :btree
+  add_index "local_deliveries", ["local_id"], name: "index_local_deliveries_on_local_id", using: :btree
 
   create_table "local_photos", force: true do |t|
     t.integer  "index"

@@ -1,0 +1,30 @@
+<%= form_for([@local.restaurant, @local, @local_delivery]) do |f| %>
+  <% if @local_delivery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@local_delivery.errors.count, "error") %> prohibited this local_delivery from being saved:</h2>
+
+      <ul>
+      <% @local_delivery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.time_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.time_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :district_id %><br />
+    <%= f.collection_select :district_id, District.order(:name),:id,:name, include_blank: true %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2015-05-29 20:57:58
+  end_time: 2015-05-29 20:57:58
+  local_id: 
+  district_id: 
+
+two:
+  start_time: 2015-05-29 20:57:58
+  end_time: 2015-05-29 20:57:58
+  local_id: 
+  district_id: 

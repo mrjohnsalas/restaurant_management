@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @local_delivery.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @local_delivery.end_time %>
+</p>
+
+<p>
+  <strong>District:</strong>
+  <%= @local_delivery.district.name %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_local_local_delivery_path(@local.restaurant, @local, @local_delivery) %> |
+<%= link_to 'Back', restaurant_local_local_deliveries_path(@local.restaurant, @local) %>

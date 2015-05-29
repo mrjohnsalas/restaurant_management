@@ -35,7 +35,7 @@
         <li><%= link_to 'Food Categories', food_categories_path %></li>
         <li><%= link_to 'My Cards', user_cards_path %></li>
         <li><%= link_to 'My Address', user_addresses_path %></li>
-        <li><%= link_to 'My Restaurants', restaurants_path %></li>
+        <li><%= link_to 'My Restaurants / Locals / Local_Photos / Local_Deliveries', restaurants_path %></li>
         <li><%= link_to 'My Favorites', user_favorites_path %></li>
         <li><%= link_to 'My Points', user_points_path %></li>
       </ul>
@@ -43,7 +43,7 @@
 	    <p>Soy: PROVIDER</p>
 	    <p>Mis Links:</p>
 	    <ul>
-        <li><%= link_to 'My Restaurants', user_restaurants_path %></li>
+        <li><%= link_to 'My Restaurants / Locals / Local_Photos / Local_Deliveries', restaurants_path %></li>
       </ul>
     <% elsif current_user.user_type_id == 3 %>
 	    <p>Soy: CUSTOMER</p>
