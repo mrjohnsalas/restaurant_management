@@ -1,0 +1,5 @@
+<h1>New local in <%= link_to @restaurant.name,  new_restaurant_local_path %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', restaurant_locals_path(@restaurant) %>

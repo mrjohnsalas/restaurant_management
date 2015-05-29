@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528220126) do
+ActiveRecord::Schema.define(version: 20150529055401) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -49,6 +49,26 @@ ActiveRecord::Schema.define(version: 20150528220126) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "locals", force: true do |t|
+    t.string   "name"
+    t.string   "phone_1"
+    t.string   "phone_2"
+    t.string   "email_1"
+    t.string   "email_2"
+    t.text     "description"
+    t.boolean  "allow_delivery"
+    t.boolean  "allow_parking"
+    t.boolean  "allow_reservation"
+    t.boolean  "allow_credit_card"
+    t.integer  "restaurant_id"
+    t.integer  "district_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "locals", ["district_id"], name: "index_locals_on_district_id", using: :btree
+  add_index "locals", ["restaurant_id"], name: "index_locals_on_restaurant_id", using: :btree
 
   create_table "object_types", force: true do |t|
     t.string   "name"

@@ -1,0 +1,41 @@
+<h1>Listing locals in <%= link_to @restaurant.name, @restaurant %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone 1</th>
+      <th>Email 1</th>
+      <th>Allow delivery</th>
+      <th>Allow parking</th>
+      <th>Allow reservation</th>
+      <th>Allow credit card</th>
+      <th>Restaurant</th>
+      <th>District</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locals.each do |local| %>
+      <tr>
+        <td><%= local.name %></td>
+        <td><%= local.phone_1 %></td>
+        <td><%= local.email_1 %></td>
+        <td><%= local.allow_delivery %></td>
+        <td><%= local.allow_parking %></td>
+        <td><%= local.allow_reservation %></td>
+        <td><%= local.allow_credit_card %></td>
+        <td><%= local.restaurant.name %></td>
+        <td><%= local.district.name %></td>
+        <td>| <%= link_to 'Show', restaurant_local_path(@restaurant, local) %></td>
+        <td>| <%= link_to 'Edit', edit_restaurant_local_path(@restaurant, local) %></td>
+        <td>| <%= link_to 'Destroy', restaurant_local_path(@restaurant, local), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Local', new_restaurant_local_path %>

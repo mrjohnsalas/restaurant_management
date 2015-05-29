@@ -12,9 +12,9 @@
     <% @object_types.each do |object_type| %>
       <tr>
         <td><%= object_type.name %></td>
-        <td><%= link_to 'Show', object_type %></td>
-        <td><%= link_to 'Edit', edit_object_type_path(object_type) %></td>
-        <td><%= link_to 'Destroy', object_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'Show', object_type %></td>
+        <td>| <%= link_to 'Edit', edit_object_type_path(object_type) %></td>
+        <td>| <%= link_to 'Destroy', object_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

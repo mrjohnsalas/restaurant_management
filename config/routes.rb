@@ -1,29 +1,24 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
 
-
-  resources :user_points
-
-  resources :restaurants
+  resources :restaurants do
+    resources :locals
+  end
 
   resources :user_addresses
   resources :user_cards
-
+  resources :user_points
   resources :user_favorites
 
   #devise_for :users, :skip => [:registrations]
   devise_for :users
-  root 'welcome#index'
 
   resources :credit_card_types
-
   resources :food_categories
-
   resources :item_categories
-
   resources :user_types
-
   resources :object_types
-  
+
   resources :countries do
 	  resources :provinces	do
 	    resources :districts

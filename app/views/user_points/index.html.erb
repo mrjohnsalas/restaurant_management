@@ -14,9 +14,9 @@
       <tr>
         <td><%= user_point.quantity %></td>
         <td><%= user_point.restaurant.name %></td>
-        <td><%= link_to 'Show', user_point %></td>
-        <td><%= link_to 'Edit', edit_user_point_path(user_point) %></td>
-        <td><%= link_to 'Destroy', user_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'Show', user_point %></td>
+        <td>| <%= link_to 'Edit', edit_user_point_path(user_point) %></td>
+        <td>| <%= link_to 'Destroy', user_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

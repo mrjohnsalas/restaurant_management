@@ -5,9 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Phone 1</th>
-      <th>Phone 2</th>
       <th>Email 1</th>
-      <th>Email 2</th>
       <th>Web page</th>
       <th>Facebook</th>
       <th>Twitter</th>
@@ -24,9 +22,7 @@
       <tr>
         <td><%= restaurant.name %></td>
         <td><%= restaurant.phone_1 %></td>
-        <td><%= restaurant.phone_2 %></td>
         <td><%= restaurant.email_1 %></td>
-        <td><%= restaurant.email_2 %></td>
         <td><%= restaurant.web_page %></td>
         <td><%= restaurant.facebook %></td>
         <td><%= restaurant.twitter %></td>
@@ -34,9 +30,10 @@
         <td><%= restaurant.allow_point %></td>
         <td><%= restaurant.min_points %></td>
         <td><%= restaurant.object_type.name %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'Show', restaurant %></td>
+        <td>| <%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td>| <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'Locals', restaurant_locals_path(restaurant) %></td>
       </tr>
     <% end %>
   </tbody>

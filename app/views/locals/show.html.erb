@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @local.name %>
+</p>
+
+<p>
+  <strong>Phone 1:</strong>
+  <%= @local.phone_1 %>
+</p>
+
+<p>
+  <strong>Phone 2:</strong>
+  <%= @local.phone_2 %>
+</p>
+
+<p>
+  <strong>Email 1:</strong>
+  <%= @local.email_1 %>
+</p>
+
+<p>
+  <strong>Email 2:</strong>
+  <%= @local.email_2 %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @local.description %>
+</p>
+
+<p>
+  <strong>Allow delivery:</strong>
+  <%= @local.allow_delivery %>
+</p>
+
+<p>
+  <strong>Allow parking:</strong>
+  <%= @local.allow_parking %>
+</p>
+
+<p>
+  <strong>Allow reservation:</strong>
+  <%= @local.allow_reservation %>
+</p>
+
+<p>
+  <strong>Allow credit card:</strong>
+  <%= @local.allow_credit_card %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @local.restaurant.name %>
+</p>
+
+<p>
+  <strong>District:</strong>
+  <%= @local.district.name %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_local_path(@restaurant, @local) %> |
+<%= link_to 'Back', restaurant_locals_path(@restaurant) %>

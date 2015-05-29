@@ -14,9 +14,9 @@
       <tr>
         <td><%= user_type.id %></td>
         <td><%= user_type.name %></td>
-        <td><%= link_to 'Show', user_type %></td>
-        <td><%= link_to 'Edit', edit_user_type_path(user_type) %></td>
-        <td><%= link_to 'Destroy', user_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'Show', user_type %></td>
+        <td>| <%= link_to 'Edit', edit_user_type_path(user_type) %></td>
+        <td>| <%= link_to 'Destroy', user_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
