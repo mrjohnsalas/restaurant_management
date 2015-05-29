@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529055401) do
+ActiveRecord::Schema.define(version: 20150529153126) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 20150529055401) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "local_photos", force: true do |t|
+    t.integer  "index"
+    t.integer  "local_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "local_photos", ["local_id"], name: "index_local_photos_on_local_id", using: :btree
 
   create_table "locals", force: true do |t|
     t.string   "name"

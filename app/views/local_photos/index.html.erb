@@ -1,0 +1,27 @@
+<h1>Listing local_photos in <%= link_to @local.name, restaurant_local_path(@local.restaurant, @local) %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Photo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @local_photos.each do |local_photo| %>
+      <tr>
+        <td><%= local_photo.index %></td>
+        <td><%= image_tag local_photo.photo.url(:thumb) %></td>
+        <td>| <%= link_to 'Show', restaurant_local_local_photo_path(@local.restaurant, @local, local_photo) %></td>
+        <td>| <%= link_to 'Edit', edit_restaurant_local_local_photo_path(@local.restaurant, @local, local_photo) %></td>
+        <td>| <%= link_to 'Destroy', restaurant_local_local_photo_path(@local.restaurant, @local, local_photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Local photo', new_restaurant_local_local_photo_path(@local.restaurant, @local) %>

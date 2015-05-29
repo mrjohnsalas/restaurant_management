@@ -31,6 +31,8 @@
         <td>| <%= link_to 'Show', restaurant_local_path(@restaurant, local) %></td>
         <td>| <%= link_to 'Edit', edit_restaurant_local_path(@restaurant, local) %></td>
         <td>| <%= link_to 'Destroy', restaurant_local_path(@restaurant, local), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'View Photos', restaurant_local_local_photos_path(@restaurant, local) %></td>
+        
       </tr>
     <% end %>
   </tbody>

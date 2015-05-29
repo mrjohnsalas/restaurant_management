@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Index:</strong>
+  <%= @local_photo.index %>
+</p>
+
+<p>
+  <%= image_tag @local_photo.photo.url(:medium) %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_local_local_photo_path(@local.restaurant, @local, @local_photo) %> |
+<%= link_to 'Back', restaurant_local_local_photos_path(@local.restaurant, @local) %>

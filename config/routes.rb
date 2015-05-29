@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+
   root 'welcome#index'
 
   resources :restaurants do
-    resources :locals
+    resources :locals do
+      resources :local_photos
+    end
   end
 
   resources :user_addresses
