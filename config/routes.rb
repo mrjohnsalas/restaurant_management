@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :user_cards
   resources :user_points
   resources :user_favorites
+  resources :user_reviews
 
   #devise_for :users, :skip => [:registrations]
   devise_for :users
