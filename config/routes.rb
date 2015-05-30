@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :restaurants do
+    resources :items
     resources :locals do
       resources :local_photos
       resources :local_deliveries

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Unit cost:</strong>
+  <%= @item.unit_cost %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @item.unit_price %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @item.restaurant.name %>
+</p>
+
+<p>
+  <strong>Item category:</strong>
+  <%= @item.item_category.name %>
+</p>
+
+<p>
+  <strong>Food category:</strong>
+  <%= @item.food_category.name %>
+</p>
+
+<p>
+  <strong>Object type:</strong>
+  <%= @item.object_type.name %>
+</p>
+<p>
+  <%= image_tag @item.photo.url(:medium) %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_item_path(@restaurant, @item) %> |
+<%= link_to 'Back', restaurant_items_path(@restaurant) %> |
+

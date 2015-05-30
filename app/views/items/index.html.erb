@@ -1,0 +1,35 @@
+<h1>Listing items in <%= link_to @restaurant.name, @restaurant %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Unit cost</th>
+      <th>Unit price</th>
+      <th>Item category</th>
+      <th>Food category</th>
+      <th>Object type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.unit_cost %></td>
+        <td><%= item.unit_price %></td>
+        <td><%= item.item_category.name %></td>
+        <td><%= item.food_category.name %></td>
+        <td><%= item.object_type.name %></td>
+        <td>| <%= link_to 'Show', restaurant_item_path(@restaurant, item) %></td>
+        <td>| <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item) %></td>
+        <td>| <%= link_to 'Destroy', restaurant_item_path(@restaurant, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_restaurant_item_path(@restaurant) %>

@@ -12,4 +12,5 @@ class ObjectType < ActiveRecord::Base
     validates :name, presence: true
     has_many :restaurants, dependent: :destroy
     has_many :user_favorites, dependent: :destroy
+    has_many :items, dependent: :destroy
 end

@@ -5,4 +5,5 @@ class Restaurant < ActiveRecord::Base
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
   has_many :user_points, dependent: :destroy
   has_many :locals, dependent: :destroy
+  has_many :items, dependent: :destroy
 end

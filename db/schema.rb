@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529220434) do
+ActiveRecord::Schema.define(version: 20150530035607) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -49,6 +49,27 @@ ActiveRecord::Schema.define(version: 20150529220434) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.decimal  "unit_cost",          precision: 19, scale: 6
+    t.decimal  "unit_price",         precision: 19, scale: 6
+    t.integer  "restaurant_id"
+    t.integer  "item_category_id"
+    t.integer  "food_category_id"
+    t.integer  "object_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "items", ["food_category_id"], name: "index_items_on_food_category_id", using: :btree
+  add_index "items", ["item_category_id"], name: "index_items_on_item_category_id", using: :btree
+  add_index "items", ["object_type_id"], name: "index_items_on_object_type_id", using: :btree
+  add_index "items", ["restaurant_id"], name: "index_items_on_restaurant_id", using: :btree
 
   create_table "local_cards", force: true do |t|
     t.integer  "local_id"

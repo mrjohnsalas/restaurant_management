@@ -1,0 +1,5 @@
+<h1>New item in <%= link_to @restaurant.name, @restaurant %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', restaurant_items_path(@restaurant) %>

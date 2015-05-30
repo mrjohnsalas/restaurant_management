@@ -1,0 +1,45 @@
+<%= form_for([@restaurant, @item], html: { multipart: true }) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_cost %><br>
+    <%= f.text_field :unit_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_price %><br>
+    <%= f.text_field :unit_price %>
+  </div>
+  <div class="field">
+    <%= f.label :item_category_id %><br />
+    <%= f.collection_select :item_category_id, ItemCategory.order(:name),:id,:name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :food_category_id %><br />
+    <%= f.collection_select :food_category_id, FoodCategory.order(:name),:id,:name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :object_type_id %><br />
+    <%= f.collection_select :object_type_id, ObjectType.order(:name),:id,:name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
