@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  menu_date: 2015-05-30
+  stock: 1
+  local_id: 
+  item_id: 
+
+two:
+  menu_date: 2015-05-30
+  stock: 1
+  local_id: 
+  item_id: 

@@ -4,4 +4,5 @@ class Local < ActiveRecord::Base
   has_many :local_photos, dependent: :destroy
   has_many :local_deliveries, dependent: :destroy
   has_many :local_cards, dependent: :destroy
+  has_many :menus, dependent: :destroy
 end

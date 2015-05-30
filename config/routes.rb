@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :local_photos
       resources :local_deliveries
       resources :local_cards
+      resources :menus
     end
   end
 
