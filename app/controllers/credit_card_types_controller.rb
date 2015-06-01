@@ -4,7 +4,7 @@ class CreditCardTypesController < ApplicationController
   # GET /credit_card_types
   # GET /credit_card_types.json
   def index
-    @credit_card_types = CreditCardType.all
+    @credit_card_types = CreditCardType.all.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /credit_card_types/1

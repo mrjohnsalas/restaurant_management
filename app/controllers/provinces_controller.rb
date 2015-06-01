@@ -7,7 +7,7 @@ class ProvincesController < ApplicationController
   # GET /provinces
   # GET /provinces.json
   def index
-    @provinces = @country.provinces
+    @provinces = @country.provinces.paginate(:page => params[:page], :per_page => 5)
     respond_with(@country, @provinces)
   end
 

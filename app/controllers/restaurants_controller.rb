@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   respond_to :html
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.paginate(:page => params[:page], :per_page => 5)
     respond_with(@restaurants)
   end
 

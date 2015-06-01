@@ -4,7 +4,7 @@ class UserTypesController < ApplicationController
   # GET /user_types
   # GET /user_types.json
   def index
-    @user_types = UserType.all
+    @user_types = UserType.all.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /user_types/1

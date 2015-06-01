@@ -4,7 +4,7 @@ class UserFavoritesController < ApplicationController
   respond_to :html
 
   def index
-    @user_favorites = UserFavorite.all
+    @user_favorites = UserFavorite.all.paginate(:page => params[:page], :per_page => 5)
     respond_with(@user_favorites)
   end
 

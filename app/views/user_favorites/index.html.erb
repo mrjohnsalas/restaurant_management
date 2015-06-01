@@ -23,5 +23,6 @@
 </table>
 
 <br>
-
+<%= will_paginate @user_favorites, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
+<br>
 <%= link_to 'New User favorite', new_user_favorite_path %>

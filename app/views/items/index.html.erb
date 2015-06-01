@@ -31,5 +31,6 @@
 </table>
 
 <br>
-
+<%= will_paginate @items, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
+<br>
 <%= link_to 'New Item', new_restaurant_item_path(@restaurant) %>

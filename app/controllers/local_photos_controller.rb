@@ -8,7 +8,7 @@ class LocalPhotosController < ApplicationController
     # @local_photos = LocalPhoto.all
     # respond_with(@local_photos)
     
-    @local_photos = @local.local_photos
+    @local_photos = @local.local_photos.paginate(:page => params[:page], :per_page => 5)
     respond_with(@local, @local_photos)
   end
 

@@ -4,7 +4,7 @@ class UserPointsController < ApplicationController
   respond_to :html
 
   def index
-    @user_points = UserPoint.all
+    @user_points = UserPoint.all.paginate(:page => params[:page], :per_page => 5)
     respond_with(@user_points)
   end
 

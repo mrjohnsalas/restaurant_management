@@ -27,5 +27,6 @@
 </table>
 
 <br>
-
+<%= will_paginate @menus, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
+<br>
 <%= link_to 'New Menu', new_restaurant_local_menu_path(@local.restaurant, @local) %>

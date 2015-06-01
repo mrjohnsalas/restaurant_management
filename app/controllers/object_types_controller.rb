@@ -4,7 +4,7 @@ class ObjectTypesController < ApplicationController
   # GET /object_types
   # GET /object_types.json
   def index
-    @object_types = ObjectType.all
+    @object_types = ObjectType.all.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /object_types/1

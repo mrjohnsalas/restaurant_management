@@ -4,7 +4,7 @@ class UserAddressesController < ApplicationController
   respond_to :html
 
   def index
-    @user_addresses = UserAddress.all
+    @user_addresses = UserAddress.all.paginate(:page => params[:page], :per_page => 5)
     respond_with(@user_addresses)
   end
 

@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     # @items = Item.all
     # respond_with(@items)
     
-    @items = @restaurant.items
+    @items = @restaurant.items.paginate(:page => params[:page], :per_page => 5)
     respond_with(@restaurant, @items)
   end
 

@@ -8,7 +8,7 @@ class MenusController < ApplicationController
     # @menus = Menu.all
     # respond_with(@menus)
     
-    @menus = @local.menus
+    @menus = @local.menus.paginate(:page => params[:page], :per_page => 5)
     respond_with(@local, @menus)
   end
 

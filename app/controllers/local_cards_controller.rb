@@ -8,7 +8,7 @@ class LocalCardsController < ApplicationController
     # @local_cards = LocalCard.all
     # respond_with(@local_cards)
     
-    @local_cards = @local.local_cards
+    @local_cards = @local.local_cards.paginate(:page => params[:page], :per_page => 5)
     respond_with(@local, @local_cards)
   end
 

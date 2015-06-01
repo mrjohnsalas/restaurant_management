@@ -52,8 +52,8 @@
     <%= f.check_box :allow_credit_card %>
   </div>
   <div class="field">
-    <%= f.label :district_id %><br />
-    <%= f.collection_select :district_id, District.order(:name),:id,:name, include_blank: true %>
+    <%= f.label :"Select Your district" %><br />
+    <%= f.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :name, include_blank: true %>
   </div>
   <div class="actions">
     <%= f.submit %>

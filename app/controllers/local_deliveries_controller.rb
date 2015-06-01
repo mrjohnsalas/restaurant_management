@@ -8,7 +8,7 @@ class LocalDeliveriesController < ApplicationController
     # @local_deliveries = LocalDelivery.all
     # respond_with(@local_deliveries)
     
-    @local_deliveries = @local.local_deliveries
+    @local_deliveries = @local.local_deliveries.paginate(:page => params[:page], :per_page => 5)
     respond_with(@local, @local_deliveries)
   end
 

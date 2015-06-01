@@ -26,7 +26,7 @@
 </table>
 
 <br>
-
-
+<%= will_paginate @provinces, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
+<br>
 <%= link_to 'New Province', new_country_province_path(@country) %>
 <%= link_to 'Countries', countries_path %>

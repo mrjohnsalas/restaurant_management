@@ -27,5 +27,6 @@
 </table>
 
 <br>
-
+<%= will_paginate @user_addresses, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
+<br>
 <%= link_to 'New User address', new_user_address_path %>

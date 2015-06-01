@@ -4,7 +4,7 @@ class UserReviewsController < ApplicationController
   respond_to :html
 
   def index
-    @user_reviews = UserReview.all
+    @user_reviews = UserReview.all.paginate(:page => params[:page], :per_page => 5)
     respond_with(@user_reviews)
   end
 

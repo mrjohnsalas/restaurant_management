@@ -23,5 +23,6 @@
 </table>
 
 <br>
-
+<%= will_paginate @local_photos, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
+<br>
 <%= link_to 'New Local photo', new_restaurant_local_local_photo_path(@local.restaurant, @local) %>

@@ -4,7 +4,7 @@ class UserCardsController < ApplicationController
   respond_to :html
 
   def index
-    @user_cards = UserCard.all
+    @user_cards = UserCard.all.paginate(:page => params[:page], :per_page => 5)
     respond_with(@user_cards)
   end
 

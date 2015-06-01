@@ -7,7 +7,7 @@ class DistrictsController < ApplicationController
   # GET /districts
   # GET /districts.json
   def index
-    @districts = @province.districts
+    @districts = @province.districts.paginate(:page => params[:page], :per_page => 5)
     respond_with(@province, @districts)
   end
 

@@ -8,7 +8,7 @@ class LocalsController < ApplicationController
     # @locals = Local.all
     # respond_with(@locals)
     
-    @locals = @restaurant.locals
+    @locals = @restaurant.locals.paginate(:page => params[:page], :per_page => 5)
     respond_with(@restaurant, @locals)
   end
 

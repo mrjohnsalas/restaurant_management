@@ -4,7 +4,7 @@ class FoodCategoriesController < ApplicationController
   # GET /food_categories
   # GET /food_categories.json
   def index
-    @food_categories = FoodCategory.all
+    @food_categories = FoodCategory.all.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /food_categories/1
