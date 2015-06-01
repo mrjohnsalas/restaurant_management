@@ -38,6 +38,32 @@
   <%= image_tag @item.photo.url(:medium) %>
 </p>
 
+<div class="star-rating" data-score=<%= @avg_review %>></div>
+<em><%= "#{@user_reviews.length} reviews" %></em>
+<br><br>
 <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, @item) %> |
 <%= link_to 'Back', restaurant_items_path(@restaurant) %> |
+<br><br>
 
+      <div>
+          <% if @user_reviews.blank? %>
+            <h3>No reviews just yet, would you like to add the first!</h3>
+          <% else %>
+            <% @user_reviews.each do |review| %>
+              <div class="reviews">
+                <div class="star-rating" data-score=<%= review.rating %>></div>
+                <p><%= review.comment %></p>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+      
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>

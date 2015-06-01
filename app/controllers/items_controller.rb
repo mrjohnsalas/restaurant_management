@@ -14,7 +14,14 @@ class ItemsController < ApplicationController
 
   def show
     # respond_with(@item)
-    respond_with(@restaurant, @item)
+    #respond_with(@restaurant, @item)
+    @user_reviews = UserReview.where(item_id: @item.id).order("created_at DESC")
+
+    if @user_reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @user_reviews.average(:rating).round(2)
+    end
   end
 
   def new

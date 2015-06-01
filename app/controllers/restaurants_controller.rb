@@ -9,7 +9,14 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    respond_with(@restaurant)
+    #respond_with(@restaurant)
+    @user_reviews = UserReview.where(restaurant_id: @restaurant.id).order("created_at DESC")
+
+    if @user_reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @user_reviews.average(:rating).round(2)
+    end
   end
 
   def new
