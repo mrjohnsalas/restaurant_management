@@ -1,5 +1,14 @@
-<h1>New user_review</h1>
+<% if @item != nil %>
+    <h1>New user_review in <%= link_to @item.name,  new_restaurant_item_user_review_path %></h1>
+<% else %>
+    <h1>New user_review in <%= link_to @restaurant.name,  new_restaurant_user_review_path %></h1>
+<% end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', user_reviews_path %>
+<% if @item != nil %>
+    <%= link_to 'Back', restaurant_item_user_reviews_path(@item.restaurant, @item) %>
+                        
+<% else %>
+    <%= link_to 'Back', restaurant_user_reviews_path(@restaurant) %>
+<% end %>

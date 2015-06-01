@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530052953) do
+ActiveRecord::Schema.define(version: 20150601191144) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -228,14 +228,16 @@ ActiveRecord::Schema.define(version: 20150530052953) do
   create_table "user_reviews", force: true do |t|
     t.integer  "rating"
     t.text     "comment"
-    t.integer  "object_id"
-    t.integer  "user_id"
     t.integer  "object_type_id"
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.integer  "restaurant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_reviews", ["object_type_id"], name: "index_user_reviews_on_object_type_id", using: :btree
+  add_index "user_reviews", ["item_id"], name: "index_user_reviews_on_item_id", using: :btree
+  add_index "user_reviews", ["restaurant_id"], name: "index_user_reviews_on_restaurant_id", using: :btree
   add_index "user_reviews", ["user_id"], name: "index_user_reviews_on_user_id", using: :btree
 
   create_table "user_types", force: true do |t|

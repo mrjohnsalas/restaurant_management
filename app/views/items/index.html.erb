@@ -25,6 +25,7 @@
         <td>| <%= link_to 'Show', restaurant_item_path(@restaurant, item) %></td>
         <td>| <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item) %></td>
         <td>| <%= link_to 'Destroy', restaurant_item_path(@restaurant, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'Reviews', restaurant_item_user_reviews_path(@restaurant, item) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -3,9 +3,10 @@ class CreateUserReviews < ActiveRecord::Migration
     create_table :user_reviews do |t|
       t.integer :rating
       t.text :comment
-      t.integer :object_id
+      t.integer :object_type_id
       t.references :user, index: true
-      t.references :object_type, index: true
+      t.references :item, index: true
+      t.references :restaurant, index: true
 
       t.timestamps
     end

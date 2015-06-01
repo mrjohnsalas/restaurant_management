@@ -5,6 +5,7 @@
   <%= @user_review.rating %>
   <div class="star-rating" data-score=<%= @user_review.rating %>></div>
 </p>
+
 <p>
   <strong>Comment:</strong>
   <%= @user_review.comment %>
@@ -12,17 +13,28 @@
 
 <p>
   <strong>Object type:</strong>
-  <%= @user_review.object_type.name %>
+  <%= @user_review.object_type_id %>
 </p>
-
-<p>
-  <strong>Object:</strong>
-  <%= @user_review.object_id %>
-</p>
-
-<%= link_to 'Edit', edit_user_review_path(@user_review) %> |
-<%= link_to 'Back', user_reviews_path %>
-
+<% if @user_review.item != nil %>
+  <p>
+    <strong>Item:</strong>
+    <%= @user_review.item.name %>
+  </p>
+<% end %>
+<% if @user_review.restaurant != nil %>
+  <p>
+    <strong>Restaurant:</strong>
+    <%= @user_review.restaurant.name %>
+  </p>
+<% end %>
+<% if @user_review.item != nil %>
+  <%= link_to 'Edit', edit_restaurant_item_user_review_path(@item.restaurant, @item, @user_review) %> |
+  <%= link_to 'Back', restaurant_item_user_reviews_path(@item.restaurant, @item) %>
+<% end %>
+<% if @user_review.restaurant != nil %>
+  <%= link_to 'Edit', edit_restaurant_user_review_path(@restaurant, @user_review) %> |
+  <%= link_to 'Back', restaurant_user_reviews_path(@restaurant) %>
+<% end %>
 <script>
   $('.star-rating').raty({
     path: '/assets/',

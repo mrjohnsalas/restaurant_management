@@ -18,7 +18,7 @@ class UserReviewsControllerTest < ActionController::TestCase
 
   test "should create user_review" do
     assert_difference('UserReview.count') do
-      post :create, user_review: { comment: @user_review.comment, object_id: @user_review.object_id, object_type_id: @user_review.object_type_id, rating: @user_review.rating, user_id: @user_review.user_id }
+      post :create, user_review: { comment: @user_review.comment, item_id: @user_review.item_id, object_type_id: @user_review.object_type_id, rating: @user_review.rating, restaurant_id: @user_review.restaurant_id, user_id: @user_review.user_id }
     end
 
     assert_redirected_to user_review_path(assigns(:user_review))
@@ -35,7 +35,7 @@ class UserReviewsControllerTest < ActionController::TestCase
   end
 
   test "should update user_review" do
-    patch :update, id: @user_review, user_review: { comment: @user_review.comment, object_id: @user_review.object_id, object_type_id: @user_review.object_type_id, rating: @user_review.rating, user_id: @user_review.user_id }
+    patch :update, id: @user_review, user_review: { comment: @user_review.comment, item_id: @user_review.item_id, object_type_id: @user_review.object_type_id, rating: @user_review.rating, restaurant_id: @user_review.restaurant_id, user_id: @user_review.user_id }
     assert_redirected_to user_review_path(assigns(:user_review))
   end
 

@@ -35,6 +35,7 @@
         <td>| <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>| <%= link_to 'Locals', restaurant_locals_path(restaurant) %></td>
         <td>| <%= link_to 'Items', restaurant_items_path(restaurant) %></td>
+        <td>| <%= link_to 'Reviews', restaurant_user_reviews_path(restaurant, nil) %></td>
       </tr>
     <% end %>
   </tbody>

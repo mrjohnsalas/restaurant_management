@@ -3,22 +3,23 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :restaurants do
-    resources :items
+    resources :items do
+      resources :user_reviews
+    end
     resources :locals do
       resources :local_photos
       resources :local_deliveries
       resources :local_cards
       resources :menus
     end
+    resources :user_reviews
   end
 
   resources :user_addresses
   resources :user_cards
   resources :user_points
   resources :user_favorites
-  resources :user_reviews
-
-  #devise_for :users, :skip => [:registrations]
+  
   devise_for :users
 
   resources :credit_card_types

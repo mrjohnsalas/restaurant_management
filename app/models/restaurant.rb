@@ -6,4 +6,5 @@ class Restaurant < ActiveRecord::Base
   has_many :user_points, dependent: :destroy
   has_many :locals, dependent: :destroy
   has_many :items, dependent: :destroy
+  has_many :user_reviews, dependent: :destroy
 end

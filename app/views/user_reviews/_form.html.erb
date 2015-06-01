@@ -1,4 +1,4 @@
-<%= form_for(@user_review) do |f| %>
+<%= form_for([@restaurant, @item, @user_review]) do |f| %>
   <% if @user_review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_review.errors.count, "error") %> prohibited this user_review from being saved:</h2>
@@ -17,14 +17,6 @@
   <div class="field">
     <%= f.label :comment %><br>
     <%= f.text_area :comment %>
-  </div>
-  <div class="field">
-    <%= f.label :object_type_id %><br />
-    <%= f.collection_select :object_type_id, ObjectType.order(:name),:id,:name, include_blank: true %>
-  </div>
-  <div class="field">
-    <%= f.label :object_id %><br>
-    <%= f.number_field :object_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
