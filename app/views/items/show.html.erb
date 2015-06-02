@@ -43,6 +43,11 @@
 <br><br>
 <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, @item) %> |
 <%= link_to 'Back', restaurant_items_path(@restaurant) %> |
+<%= link_to 'New User review', new_restaurant_item_user_review_path(@restaurant, @item) %>
+<p><%= @item.get_upvotes.size %> Likes</p>
+<p><%= @item.get_downvotes.size %> DisLike</p>
+<%= link_to 'Like', like_restaurant_item_path(@restaurant, @item), method: :put %> |
+<%= link_to "DisLike", dislike_restaurant_item_path(@restaurant, @item), method: :put %>
 <br><br>
 
       <div>

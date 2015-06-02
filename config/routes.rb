@@ -3,7 +3,15 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :restaurants do
+    member do
+      put "like", to: "restaurants#upvote"
+      put "dislike", to: "restaurants#downvote"
+    end
     resources :items do
+      member do
+        put "like", to: "items#upvote"
+        put "dislike", to: "items#downvote"
+      end
       resources :user_reviews
     end
     resources :locals do
@@ -17,9 +25,7 @@ Rails.application.routes.draw do
 
   resources :user_addresses
   resources :user_cards
-  resources :user_points
-  resources :user_favorites
-  
+  resources :user_points  
   devise_for :users
 
   resources :credit_card_types

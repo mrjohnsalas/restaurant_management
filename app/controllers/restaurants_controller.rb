@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   respond_to :html
 
@@ -41,6 +41,16 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     respond_with(@restaurant)
+  end
+  
+  def upvote
+    @restaurant.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @restaurant.downvote_from current_user
+    redirect_to :back
   end
 
   private

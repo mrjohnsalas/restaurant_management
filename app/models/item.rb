@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  acts_as_votable
   belongs_to :restaurant
   belongs_to :item_category
   belongs_to :food_category

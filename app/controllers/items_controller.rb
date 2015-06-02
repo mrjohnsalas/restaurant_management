@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_restaurant
   
   respond_to :html
@@ -59,6 +59,16 @@ class ItemsController < ApplicationController
     
     @item.destroy
     redirect_to restaurant_items_path(@restaurant)
+  end
+  
+  def upvote
+    @item.upvote_by current_user
+    redirect_to :back
+  end
+  
+  def downvote
+    @item.downvote_from current_user
+    redirect_to :back
   end
 
   private

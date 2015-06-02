@@ -67,7 +67,13 @@
 <em><%= "#{@user_reviews.length} reviews" %></em>
 <br><br>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Back', restaurants_path %> |
+<%= link_to 'New User review', new_restaurant_user_review_path(@restaurant) %>
+
+<p><%= @restaurant.get_upvotes.size %> Likes</p>
+<p><%= @restaurant.get_downvotes.size %> DisLike</p>
+<%= link_to 'Like', like_restaurant_path(@restaurant), method: :put %> |
+<%= link_to "DisLike", dislike_restaurant_path(@restaurant), method: :put %>
 <br><br>
 
       <div>

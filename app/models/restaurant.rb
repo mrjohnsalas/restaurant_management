@@ -1,4 +1,5 @@
 class Restaurant < ActiveRecord::Base
+  acts_as_votable
   belongs_to :user
   belongs_to :object_type
   has_attached_file :logo, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#" }
