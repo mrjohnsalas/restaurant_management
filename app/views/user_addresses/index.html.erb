@@ -1,5 +1,10 @@
 <h1>Listing user_addresses</h1>
-
+<%= form_tag user_addresses_path, method: :get do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search User Addresses", name: nil %>
+	</p>
+<% end %>
 <table>
   <thead>
     <tr>

@@ -13,4 +13,10 @@ class Province < ActiveRecord::Base
   belongs_to :country
   has_many :districts, dependent: :destroy
   validates :name, presence: true
+  
+  def self.search(search)
+	  if search
+		  where("name like ?", "%#{search}%")
+	  end
+  end
 end

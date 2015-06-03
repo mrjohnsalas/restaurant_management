@@ -1,5 +1,10 @@
 <h1>Listing restaurants</h1>
-
+<%= form_tag restaurants_path, method: :get do %>
+  <p>
+	  <%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search Restaurants", name: nil %>
+	</p>
+<% end %>
 <table>
   <thead>
     <tr>

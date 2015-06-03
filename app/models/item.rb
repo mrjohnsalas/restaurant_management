@@ -8,4 +8,10 @@ class Item < ActiveRecord::Base
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   has_many :menus, dependent: :destroy
   has_many :user_reviews, dependent: :destroy
+  
+  def self.search(search)
+	  if search
+		  where("name like ?", "%#{search}%") 
+	  end
+  end
 end

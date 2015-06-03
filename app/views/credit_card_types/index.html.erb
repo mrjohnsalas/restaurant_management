@@ -1,5 +1,10 @@
 <h1>Listing credit_card_types</h1>
-
+<%= form_tag credit_card_types_path, method: :get do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search Credit Card Types", name: nil %>
+	</p>
+<% end %>
 <table>
   <thead>
     <tr>

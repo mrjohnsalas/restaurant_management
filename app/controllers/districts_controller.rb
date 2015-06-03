@@ -4,12 +4,20 @@ class DistrictsController < ApplicationController
   
   respond_to :html
   
+  def index
+	  if params[:search]
+		  @districts = @province.districts.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	  else
+		  @districts = @province.districts.paginate(:page => params[:page], :per_page => 5)
+	  end
+  end
+  
   # GET /districts
   # GET /districts.json
-  def index
-    @districts = @province.districts.paginate(:page => params[:page], :per_page => 5)
-    respond_with(@province, @districts)
-  end
+  # def index
+  #   @districts = @province.districts.paginate(:page => params[:page], :per_page => 5)
+  #   respond_with(@province, @districts)
+  # end
 
   # GET /districts/1
   # GET /districts/1.json

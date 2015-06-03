@@ -1,5 +1,10 @@
 <h1>Listing districts in <%= link_to @province.name, country_province_path(@province.country, @province) %></h1>
-
+<%= form_tag country_province_districts_path(@province.country, @province), method: :get do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search Districts", name: nil %>
+	</p>
+<% end %>
 <table>
   <thead>
     <tr>

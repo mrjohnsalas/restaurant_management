@@ -1,5 +1,10 @@
 <h1>Listing item_categories</h1>
-
+<%= form_tag item_categories_path, method: :get do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search Item Categories", name: nil %>
+	</p>
+<% end %>
 <table>
   <thead>
     <tr>

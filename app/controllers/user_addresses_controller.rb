@@ -2,11 +2,19 @@ class UserAddressesController < ApplicationController
   before_action :set_user_address, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
-
+  
   def index
-    @user_addresses = UserAddress.all.paginate(:page => params[:page], :per_page => 5)
-    respond_with(@user_addresses)
+	  if params[:search]
+		  @user_addresses = UserAddress.all.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	  else
+		  @user_addresses = UserAddress.all.paginate(:page => params[:page], :per_page => 5)
+	  end
   end
+
+  # def index
+  #   @user_addresses = UserAddress.all.paginate(:page => params[:page], :per_page => 5)
+  #   respond_with(@user_addresses)
+  # end
 
   def show
     respond_with(@user_address)

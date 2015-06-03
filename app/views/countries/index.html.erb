@@ -1,5 +1,10 @@
 <h1>Listing countries</h1>
-
+<%= form_tag countries_path, method: :get do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search Countries", name: nil %>
+	</p>
+<% end %>
 <table>
   <thead>
     <tr>

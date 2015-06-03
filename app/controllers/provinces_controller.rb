@@ -4,12 +4,20 @@ class ProvincesController < ApplicationController
   
   respond_to :html
   
+  def index
+	  if params[:search]
+		  @provinces = @country.provinces.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+    else
+		  @provinces = @country.provinces.paginate(:page => params[:page], :per_page => 5)
+    end
+  end
+  
   # GET /provinces
   # GET /provinces.json
-  def index
-    @provinces = @country.provinces.paginate(:page => params[:page], :per_page => 5)
-    respond_with(@country, @provinces)
-  end
+  # def index
+  #   @provinces = @country.provinces.paginate(:page => params[:page], :per_page => 5)
+  #   respond_with(@country, @provinces)
+  # end
 
   # GET /provinces/1
   # GET /provinces/1.json

@@ -1,11 +1,19 @@
 class FoodCategoriesController < ApplicationController
   before_action :set_food_category, only: [:show, :edit, :update, :destroy]
 
+  def index
+  	if params[:search]
+  		@food_categories = FoodCategory.all.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+  	else
+  		@food_categories = FoodCategory.all.paginate(:page => params[:page], :per_page => 5)
+  	end
+  end
+
   # GET /food_categories
   # GET /food_categories.json
-  def index
-    @food_categories = FoodCategory.all.paginate(:page => params[:page], :per_page => 5)
-  end
+  # def index
+  #   @food_categories = FoodCategory.all.paginate(:page => params[:page], :per_page => 5)
+  # end
 
   # GET /food_categories/1
   # GET /food_categories/1.json

@@ -8,4 +8,10 @@ class Restaurant < ActiveRecord::Base
   has_many :locals, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :user_reviews, dependent: :destroy
+  
+  def self.search(search)
+	  if search
+		  where("name like ?", "%#{search}%") 
+	  end
+  end
 end

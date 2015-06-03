@@ -17,4 +17,10 @@ class CreditCardType < ActiveRecord::Base
     validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
     validates :name, presence: true
     has_many :user_cards, dependent: :destroy
+    
+    def self.search(search)
+	    if search
+		    where("name like ?", "%#{search}%") 
+	    end
+    end
 end

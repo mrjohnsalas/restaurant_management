@@ -1,11 +1,19 @@
 class CreditCardTypesController < ApplicationController
   before_action :set_credit_card_type, only: [:show, :edit, :update, :destroy]
 
+  def index
+	  if params[:search]
+		  @credit_card_types = CreditCardType.all.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	  else
+		  @credit_card_types = CreditCardType.all.paginate(:page => params[:page], :per_page => 5)
+	  end
+  end
+
   # GET /credit_card_types
   # GET /credit_card_types.json
-  def index
-    @credit_card_types = CreditCardType.all.paginate(:page => params[:page], :per_page => 5)
-  end
+  # def index
+  #   @credit_card_types = CreditCardType.all.paginate(:page => params[:page], :per_page => 5)
+  # end
 
   # GET /credit_card_types/1
   # GET /credit_card_types/1.json

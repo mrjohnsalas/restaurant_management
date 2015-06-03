@@ -15,4 +15,10 @@ class District < ActiveRecord::Base
   has_many :locals, dependent: :destroy
   has_many :local_deliveries, dependent: :destroy
   validates :name, presence: true
+  
+  def self.search(search)
+	  if search
+		  where("name like ?", "%#{search}%") 
+	  end
+  end
 end

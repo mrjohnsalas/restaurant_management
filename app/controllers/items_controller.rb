@@ -3,14 +3,22 @@ class ItemsController < ApplicationController
   before_action :set_restaurant
   
   respond_to :html
-
+  
   def index
-    # @items = Item.all
-    # respond_with(@items)
-    
-    @items = @restaurant.items.paginate(:page => params[:page], :per_page => 5)
-    respond_with(@restaurant, @items)
+	  if params[:search]
+		  @items = @restaurant.items.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	  else
+		  @items = @restaurant.items.paginate(:page => params[:page], :per_page => 5)
+	  end
   end
+
+  # def index
+  #   # @items = Item.all
+  #   # respond_with(@items)
+    
+  #   @items = @restaurant.items.paginate(:page => params[:page], :per_page => 5)
+  #   respond_with(@restaurant, @items)
+  # end
 
   def show
     # respond_with(@item)

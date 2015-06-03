@@ -3,14 +3,22 @@ class LocalsController < ApplicationController
   before_action :set_restaurant
 
   respond_to :html
-
+  
   def index
-    # @locals = Local.all
-    # respond_with(@locals)
-    
-    @locals = @restaurant.locals.paginate(:page => params[:page], :per_page => 5)
-    respond_with(@restaurant, @locals)
+	  if params[:search]
+		  @locals = @restaurant.locals.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	  else
+		  @locals = @restaurant.locals.paginate(:page => params[:page], :per_page => 5)
+	  end
   end
+
+  # def index
+  #   # @locals = Local.all
+  #   # respond_with(@locals)
+    
+  #   @locals = @restaurant.locals.paginate(:page => params[:page], :per_page => 5)
+  #   respond_with(@restaurant, @locals)
+  # end
 
   def show
     # respond_with(@local)

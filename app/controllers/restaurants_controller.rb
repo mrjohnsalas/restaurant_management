@@ -2,11 +2,19 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   respond_to :html
-
+  
   def index
-    @restaurants = Restaurant.all.paginate(:page => params[:page], :per_page => 5)
-    respond_with(@restaurants)
+	  if params[:search]
+		  @restaurants = Restaurant.all.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	  else
+		  @restaurants = Restaurant.all.paginate(:page => params[:page], :per_page => 5)
+	  end
   end
+
+  # def index
+  #   @restaurants = Restaurant.all.paginate(:page => params[:page], :per_page => 5)
+  #   respond_with(@restaurants)
+  # end
 
   def show
     #respond_with(@restaurant)

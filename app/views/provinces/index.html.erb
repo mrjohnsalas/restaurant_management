@@ -1,5 +1,10 @@
 <h1>Listing provinces in <%= link_to @country.name, @country %></h1>
-
+<%= form_tag country_provinces_path(@country), method: :get do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search Provinces", name: nil %>
+	</p>
+<% end %>
 <table>
   <thead>
     <tr>

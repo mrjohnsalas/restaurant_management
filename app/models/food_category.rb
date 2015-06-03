@@ -11,4 +11,10 @@
 class FoodCategory < ActiveRecord::Base
     validates :name, presence: true
     has_many :items, dependent: :destroy
+    
+    def self.search(search)
+	    if search
+		    where("name like ?", "%#{search}%") 
+	    end
+    end
 end

@@ -1,11 +1,19 @@
 class ItemCategoriesController < ApplicationController
   before_action :set_item_category, only: [:show, :edit, :update, :destroy]
 
+  def index
+  	if params[:search]
+  		@item_categories = ItemCategory.all.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+  	else
+  		@item_categories = ItemCategory.all.paginate(:page => params[:page], :per_page => 5)
+  	end
+  end
+
   # GET /item_categories
   # GET /item_categories.json
-  def index
-    @item_categories = ItemCategory.all.paginate(:page => params[:page], :per_page => 5)
-  end
+  # def index
+  #   @item_categories = ItemCategory.all.paginate(:page => params[:page], :per_page => 5)
+  # end
 
   # GET /item_categories/1
   # GET /item_categories/1.json

@@ -1,11 +1,19 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
 
+  def index
+  	if params[:search]
+  		@countries = Country.all.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+  	else
+  		@countries = Country.all.paginate(:page => params[:page], :per_page => 5)
+  	end
+  end
+
   # GET /countries
   # GET /countries.json
-  def index
-    @countries = Country.all.paginate(:page => params[:page], :per_page => 5)
-  end
+  # def index
+  #   @countries = Country.all.paginate(:page => params[:page], :per_page => 5)
+  # end
 
   # GET /countries/1
   # GET /countries/1.json
