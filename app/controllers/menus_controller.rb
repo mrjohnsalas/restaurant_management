@@ -3,14 +3,22 @@ class MenusController < ApplicationController
   before_action :set_local
   
   respond_to :html
-
+  
   def index
-    # @menus = Menu.all
-    # respond_with(@menus)
-    
-    @menus = @local.menus.paginate(:page => params[:page], :per_page => 5)
-    respond_with(@local, @menus)
+	  if params[:search] and params[:search] != "" 
+		  @menus = @local.menus.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	  else
+		  @menus = @local.menus.paginate(:page => params[:page], :per_page => 5)
+	  end
   end
+
+  # def index
+  #   # @menus = Menu.all
+  #   # respond_with(@menus)
+    
+  #   @menus = @local.menus.paginate(:page => params[:page], :per_page => 5)
+  #   respond_with(@local, @menus)
+  # end
 
   def show
     # respond_with(@menu)

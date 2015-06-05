@@ -1,5 +1,10 @@
 <h1>Listing menus in <%= link_to @local.name, restaurant_local_path(@local.restaurant, @local) %></h1>
-
+<%= form_tag restaurant_local_menus_path(@local.restaurant, @local), method: :get do %>
+	<p>
+		<%= date_field_tag :search, params[:search] %>
+		<%= submit_tag "Search Menus", name: nil %>
+	</p>
+<% end %>
 <table>
   <thead>
     <tr>
