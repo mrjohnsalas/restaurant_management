@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :orders do
+    resources :order_details
+    resources :order_deliveries  
+    resources :order_cards
+  end
+
+  resources :payment_types
+
   root 'welcome#index'
 
   resources :restaurants do

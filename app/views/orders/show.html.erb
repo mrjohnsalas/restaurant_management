@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>Total discount:</strong>
+  <%= @order.total_discount %>
+</p>
+
+<p>
+  <strong>Sub total:</strong>
+  <%= @order.sub_total %>
+</p>
+
+<p>
+  <strong>Igv:</strong>
+  <%= @order.igv %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @order.total %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @order.local %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @order.payment_type %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

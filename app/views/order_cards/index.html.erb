@@ -1,0 +1,27 @@
+<h1>Listing order_cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>User card</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_cards.each do |order_card| %>
+      <tr>
+        <td><%= order_card.order %></td>
+        <td><%= order_card.user_card %></td>
+        <td>| <%= link_to 'Show', order_card %></td>
+        <td>| <%= link_to 'Edit', edit_order_card_path(order_card) %></td>
+        <td>| <%= link_to 'Destroy', order_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order card', new_order_card_path %>

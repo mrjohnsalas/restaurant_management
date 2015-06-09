@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608181212) do
+ActiveRecord::Schema.define(version: 20150609224134) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -140,6 +140,63 @@ ActiveRecord::Schema.define(version: 20150608181212) do
 
   create_table "object_types", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_cards", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "user_card_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "order_cards", ["order_id"], name: "index_order_cards_on_order_id", using: :btree
+  add_index "order_cards", ["user_card_id"], name: "index_order_cards_on_user_card_id", using: :btree
+
+  create_table "order_deliveries", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "user_address_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "order_deliveries", ["order_id"], name: "index_order_deliveries_on_order_id", using: :btree
+  add_index "order_deliveries", ["user_address_id"], name: "index_order_deliveries_on_user_address_id", using: :btree
+
+  create_table "order_details", force: true do |t|
+    t.integer  "quantity"
+    t.decimal  "unit_price", precision: 19, scale: 6
+    t.decimal  "total",      precision: 19, scale: 6
+    t.integer  "order_id"
+    t.integer  "menu_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "order_details", ["menu_id"], name: "index_order_details_on_menu_id", using: :btree
+  add_index "order_details", ["order_id"], name: "index_order_details_on_order_id", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.date     "order_date"
+    t.decimal  "total_discount",  precision: 19, scale: 6
+    t.decimal  "sub_total",       precision: 19, scale: 6
+    t.decimal  "igv",             precision: 19, scale: 6
+    t.decimal  "total",           precision: 19, scale: 6
+    t.integer  "local_id"
+    t.integer  "user_id"
+    t.integer  "payment_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["local_id"], name: "index_orders_on_local_id", using: :btree
+  add_index "orders", ["payment_type_id"], name: "index_orders_on_payment_type_id", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "payment_types", force: true do |t|
+    t.string   "name"
+    t.decimal  "discount",   precision: 19, scale: 6
     t.datetime "created_at"
     t.datetime "updated_at"
   end
