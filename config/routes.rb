@@ -18,7 +18,12 @@ Rails.application.routes.draw do
       resources :local_photos
       resources :local_deliveries
       resources :local_cards
-      resources :menus
+      resources :menus do 
+        collection do
+          get "shop"
+          put "add_to_shopping_cart"
+        end
+      end
     end
     resources :user_reviews
   end
@@ -33,6 +38,7 @@ Rails.application.routes.draw do
   resources :item_categories
   resources :user_types
   resources :object_types
+  resources :shopping_carts
 
   resources :countries do
 	  resources :provinces	do

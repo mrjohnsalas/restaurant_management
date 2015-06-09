@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
   has_many :user_favorites, dependent: :destroy
   has_many :user_points, dependent: :destroy
   has_many :user_reviews, dependent: :destroy
+  has_many :shopping_carts, dependent: :destroy
   belongs_to :user_types
 end

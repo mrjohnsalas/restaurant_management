@@ -8,7 +8,7 @@ class MenusController < ApplicationController
 	  if params[:search] and params[:search] != "" 
 		  @menus = @local.menus.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
 	  else
-		  @menus = @local.menus.paginate(:page => params[:page], :per_page => 5)
+		  @menus = @local.menus.order(menu_date: :desc).paginate(:page => params[:page], :per_page => 5)
 	  end
   end
 
@@ -40,7 +40,6 @@ class MenusController < ApplicationController
     # @menu = Menu.new(menu_params)
     # @menu.save
     # respond_with(@menu)
-    
     @menu = @local.menus.new(menu_params)
     @menu.save
     redirect_to restaurant_local_menus_path(@local.restaurant, @local)
@@ -60,6 +59,41 @@ class MenusController < ApplicationController
     
     @menu.destroy
     redirect_to restaurant_local_menus_path(@local.restaurant, @local)
+  end
+  
+  def shop
+	  if params[:search] and params[:search] != "" 
+	    if Date.parse(params[:search]) == Date.today
+	      @today = true
+	    else
+	      @today = false
+	    end
+		  @menus = @local.menus.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	  else
+	    @today = true
+		  @menus = @local.menus.search(Date.today.to_s).paginate(:page => params[:page], :per_page => 5)
+	  end
+  end
+  
+  def add_to_shopping_cart
+    @menus = @local.menus.find(params[:menu_ids])
+    params[:quantities].delete("0")
+    i = 0
+    @menus.each do |menu|
+      @shopping_cart = ShoppingCart.find_by(user_id: current_user.id, menu_id: menu.id)
+      if @shopping_cart != nil
+        @shopping_cart.quantity += params[:quantities][i].to_i  
+        @shopping_cart.save
+      else
+        @shopping_cart = current_user.shopping_carts.new
+        @shopping_cart.menu_id = menu.id
+        @shopping_cart.quantity = params[:quantities][i]
+        @shopping_cart.save
+      end
+      i += 1
+    end
+    flash[:notice] = "Updated menus!"
+    redirect_to shopping_carts_path
   end
 
   private

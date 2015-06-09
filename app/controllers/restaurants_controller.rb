@@ -11,13 +11,7 @@ class RestaurantsController < ApplicationController
 	  end
   end
 
-  # def index
-  #   @restaurants = Restaurant.all.paginate(:page => params[:page], :per_page => 5)
-  #   respond_with(@restaurants)
-  # end
-
   def show
-    #respond_with(@restaurant)
     @user_reviews = UserReview.where(restaurant_id: @restaurant.id).order("created_at DESC")
 
     if @user_reviews.blank?
