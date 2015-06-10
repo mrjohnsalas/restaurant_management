@@ -10,38 +10,62 @@
       </ul>
     </div>
   <% end %>
-
+  <% @sub_total = 0 %>
+  <% @total_discount = 0 %>
+  <% @igv = 0 %>
+  <% @total = 0 %>
   <div class="field">
-    <%= f.label :order_date %><br>
-    <%= f.date_select :order_date %>
+    <%= f.label :payment_type_id %><br />
+    <%= f.collection_select :payment_type_id, PaymentType.order(:name), :id, :name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :Address %><br/>
+    <%= select_tag "user_address", options_from_collection_for_select(@addresses, "id", "name") %>
+  </div>
+  <table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Item total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @shopping_carts.each do |shopping_cart| %>
+      <tr>
+        <td><%= shopping_cart.menu.item.id %></td>
+        <td><%= shopping_cart.menu.item.name %></td>
+        <td><%= shopping_cart.quantity %></td>
+        <td><%= shopping_cart.menu.item.unit_price %></td>
+        <td><%= shopping_cart.quantity * shopping_cart.menu.item.unit_price %></td>
+      </tr>
+    <% @sub_total += shopping_cart.quantity * shopping_cart.menu.item.unit_price %>
+    <% end %>
+  </tbody>
+  </table>
+  <br>
+  <% @total_discount = 0 %>
+  <% @igv = (@sub_total - @total_discount) * 0.18 %>
+  <% @total = (@sub_total - @total_discount) + @igv %>
+  <div class="field">
+    <%= f.label :sub_total %><br>
+    <%= f.text_field :sub_total, :readonly => true, :value => @sub_total %>
   </div>
   <div class="field">
     <%= f.label :total_discount %><br>
-    <%= f.text_field :total_discount %>
-  </div>
-  <div class="field">
-    <%= f.label :sub_total %><br>
-    <%= f.text_field :sub_total %>
+    <%= f.text_field :total_discount, :readonly => true, :value => @total_discount %>
   </div>
   <div class="field">
     <%= f.label :igv %><br>
-    <%= f.text_field :igv %>
+    <%= f.text_field :igv, :readonly => true, :value => @igv %>
   </div>
   <div class="field">
     <%= f.label :total %><br>
-    <%= f.text_field :total %>
-  </div>
-  <div class="field">
-    <%= f.label :local_id %><br>
-    <%= f.text_field :local_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :payment_type_id %><br>
-    <%= f.text_field :payment_type_id %>
+    <%= f.text_field :total, :readonly => true, :value => @total %>
   </div>
   <div class="actions">
     <%= f.submit %>

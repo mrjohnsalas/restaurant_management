@@ -39,6 +39,7 @@
         <li><%= link_to 'My Restaurants / Locals / Local_Photos / Local_Deliveries / Local_Cards / Items / Menus', restaurants_path %></li>
         <li><%= link_to 'My Points', user_points_path %></li>
         <li><%= link_to 'My Shopping Cart', shopping_carts_path %></li>
+        <li><%= link_to 'My Orders', orders_path %></li>
       </ul>
     <% elsif current_user.user_type_id == 2 %>
 	    <p>Soy: PROVIDER</p>
