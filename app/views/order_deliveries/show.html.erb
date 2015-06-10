@@ -1,14 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Order:</strong>
-  <%= @order_delivery.order %>
+  <strong>Address Id:</strong>
+  <%= @order_delivery.user_address.id %>
 </p>
 
 <p>
-  <strong>User address:</strong>
-  <%= @order_delivery.user_address %>
+  <strong>Address Name:</strong>
+  <%= @order_delivery.user_address.name %>
 </p>
 
-<%= link_to 'Edit', edit_order_delivery_path(@order_delivery) %> |
-<%= link_to 'Back', order_deliveries_path %>
+<p>
+  <strong>Address:</strong>
+  <%= @order_delivery.user_address.address %>
+</p>
+
+<p>
+  <strong>District:</strong>
+  <%= @order_delivery.user_address.district.name %>
+</p>
+
+<p>
+  <strong>Province:</strong>
+  <%= @order_delivery.user_address.district.province.name %>
+</p>
+
+<%= link_to 'Edit', edit_order_order_delivery_path(@order, @order_delivery) %> |
+<%= link_to 'Back', order_order_deliveries_path(@order) %>

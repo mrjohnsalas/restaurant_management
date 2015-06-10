@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Menu:</strong>
+  <%= @order_detail.menu.item.id %>
+</p>
+
+<p>
+  <strong>Menu:</strong>
+  <%= @order_detail.menu.item.name %>
+</p>
+<p>
   <strong>Quantity:</strong>
   <%= @order_detail.quantity %>
 </p>
@@ -15,15 +24,5 @@
   <%= @order_detail.total %>
 </p>
 
-<p>
-  <strong>Order:</strong>
-  <%= @order_detail.order %>
-</p>
-
-<p>
-  <strong>Menu:</strong>
-  <%= @order_detail.menu %>
-</p>
-
-<%= link_to 'Edit', edit_order_detail_path(@order_detail) %> |
-<%= link_to 'Back', order_details_path %>
+<%= link_to 'Edit', edit_order_order_detail_path(@order, @order_detail) %> |
+<%= link_to 'Back', order_order_details_path(@order) %>

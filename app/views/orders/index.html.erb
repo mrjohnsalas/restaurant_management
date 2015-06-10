@@ -9,8 +9,8 @@
   <thead>
     <tr>
       <th>Order date</th>
-      <th>Total discount</th>
       <th>Sub total</th>
+      <th>Total discount</th>
       <th>Igv</th>
       <th>Total</th>
       <th>Local</th>
@@ -23,8 +23,8 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.order_date %></td>
-        <td><%= order.total_discount %></td>
         <td><%= order.sub_total %></td>
+        <td><%= order.total_discount %></td>
         <td><%= order.igv %></td>
         <td><%= order.total %></td>
         <td><%= order.local.name %></td>
@@ -32,6 +32,9 @@
         <td>| <%= link_to 'Show', order %></td>
         <td>| <%= link_to 'Edit', edit_order_path(order) %></td>
         <td>| <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'View Details', order_order_details_path(order) %></td>
+        <td>| <%= link_to 'View Delivery', order_order_deliveries_path(order) %></td>
+        <td>| <%= link_to 'View Credit Card', order_order_cards_path(order) %></td>
       </tr>
     <% end %>
   </tbody>

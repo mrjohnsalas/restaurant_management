@@ -3,11 +3,11 @@
 <table>
   <thead>
     <tr>
+      <th>Item Id</th>
+      <th>Item Name</th>
       <th>Quantity</th>
       <th>Unit price</th>
       <th>Total</th>
-      <th>Order</th>
-      <th>Menu</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,14 +15,14 @@
   <tbody>
     <% @order_details.each do |order_detail| %>
       <tr>
+        <td><%= order_detail.menu.item.id %></td>
+        <td><%= order_detail.menu.item.name %></td>
         <td><%= order_detail.quantity %></td>
         <td><%= order_detail.unit_price %></td>
         <td><%= order_detail.total %></td>
-        <td><%= order_detail.order %></td>
-        <td><%= order_detail.menu %></td>
-        <td>| <%= link_to 'Show', order_detail %></td>
-        <td>| <%= link_to 'Edit', edit_order_detail_path(order_detail) %></td>
-        <td>| <%= link_to 'Destroy', order_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'Show', order_order_detail_path(@order, order_detail) %></td>
+        <td>| <%= link_to 'Edit', edit_order_order_detail_path(@order, order_detail) %></td>
+        <td>| <%= link_to 'Destroy', order_order_detail_path(@order, order_detail), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Order detail', new_order_detail_path %>
+<%= link_to 'New Order detail', new_order_order_detail_path(@order) %>

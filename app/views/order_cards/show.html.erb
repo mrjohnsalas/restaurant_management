@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Order:</strong>
-  <%= @order_card.order %>
+  <strong>Card Id:</strong>
+  <%= @order_card.user_card.id %>
 </p>
 
 <p>
-  <strong>User card:</strong>
-  <%= @order_card.user_card %>
+  <strong>Card Number:</strong>
+  <%= @order_card.user_card.card_number %>
 </p>
 
-<%= link_to 'Edit', edit_order_card_path(@order_card) %> |
-<%= link_to 'Back', order_cards_path %>
+<p>
+  <strong>Card Type:</strong>
+  <%= @order_card.user_card.credit_card_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_order_order_card_path(@order, @order_card) %> |
+<%= link_to 'Back', order_order_cards_path(@order) %>
