@@ -19,11 +19,11 @@
   </div>
   <div class="field">
     <%= f.label :Cards %><br/>
-    <%= select_tag "user_cards", options_from_collection_for_select(@cards, "id", "card_number"), prompt: "Please select" %>
+    <%= select_tag "user_cards", options_from_collection_for_select(current_user.user_cards.all, "id", "card_number"), prompt: "Please select" %>
   </div>
   <div class="field">
     <%= f.label :Address %><br/>
-    <%= select_tag "user_address", options_from_collection_for_select(@addresses, "id", "name"), prompt: "Please select" %>
+    <%= select_tag "user_address", options_from_collection_for_select(current_user.user_addresses.all, "id", "name"), prompt: "Please select" %>
   </div>
   <table>
   <thead>
@@ -36,7 +36,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @shopping_carts.each do |shopping_cart| %>
+    <% current_user.shopping_carts.all.each do |shopping_cart| %>
       <tr>
         <td><%= shopping_cart.menu.item.id %></td>
         <td><%= shopping_cart.menu.item.name %></td>
