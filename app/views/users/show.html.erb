@@ -30,14 +30,6 @@
   <dd><%= @user.last_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:phone_1) %>:</strong></dt>
   <dd><%= @user.phone_1 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:avatar_file_name) %>:</strong></dt>
-  <dd><%= @user.avatar_file_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:avatar_content_type) %>:</strong></dt>
-  <dd><%= @user.avatar_content_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:avatar_file_size) %>:</strong></dt>
-  <dd><%= @user.avatar_file_size %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:avatar_updated_at) %>:</strong></dt>
-  <dd><%= @user.avatar_updated_at %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

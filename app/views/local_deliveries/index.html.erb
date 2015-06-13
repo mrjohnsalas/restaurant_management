@@ -10,7 +10,6 @@
       <th><%= model_class.human_attribute_name(:end_time) %></th>
       <th><%= model_class.human_attribute_name(:local_id) %></th>
       <th><%= model_class.human_attribute_name(:district_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -22,7 +21,6 @@
         <td><%= local_delivery.end_time %></td>
         <td><%= local_delivery.local_id %></td>
         <td><%= local_delivery.district_id %></td>
-        <td><%=l local_delivery.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_local_delivery_path(local_delivery), :class => 'btn btn-default btn-xs' %>

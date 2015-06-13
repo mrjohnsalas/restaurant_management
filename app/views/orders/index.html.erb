@@ -14,7 +14,6 @@
       <th><%= model_class.human_attribute_name(:local_id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:payment_type_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -30,7 +29,6 @@
         <td><%= order.local_id %></td>
         <td><%= order.user_id %></td>
         <td><%= order.payment_type_id %></td>
-        <td><%=l order.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_order_path(order), :class => 'btn btn-default btn-xs' %>

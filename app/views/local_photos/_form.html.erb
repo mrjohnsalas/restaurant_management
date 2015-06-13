@@ -9,8 +9,6 @@
   <%= error_span(@local_photo[:photo_content_type]) %>
   <%= f.input :photo_file_size %>
   <%= error_span(@local_photo[:photo_file_size]) %>
-  <%= f.input :photo_updated_at %>
-  <%= error_span(@local_photo[:photo_updated_at]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
