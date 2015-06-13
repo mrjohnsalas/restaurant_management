@@ -121,7 +121,7 @@ div {
 #carousel-example-generic{
   margin-bottom: 40px;
   overflow: hidden;
-  height: 400px;
+  max-height: 400px;
   .item{
     text-align: center;
     img{
