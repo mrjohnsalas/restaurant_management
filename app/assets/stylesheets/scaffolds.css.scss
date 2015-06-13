@@ -130,3 +130,12 @@ div {
     }
   }
 }
+.likes{
+  overflow:hidden;
+ li{
+   list-style:none;
+   display:block;
+   float:left;
+   margin: 0 10px 0 0;
+ } 
+}

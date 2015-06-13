@@ -22,10 +22,12 @@
   <dd><div class="star-rating restaurant_detail" data-score=<%= @user_reviews.length %>></div></dd>
   <dd><em><%= "#{@user_reviews.length} reviews" %></em></dd>
 </dl>
-<p><%= @item.get_upvotes.size %> Likes</p>
-<p><%= @item.get_downvotes.size %> DisLike</p>
-<%= link_to 'Like', like_restaurant_item_path(@restaurant, @item), method: :put %> |
-<%= link_to "DisLike", dislike_restaurant_item_path(@restaurant, @item), method: :put %><br><br>
+<ul class="likes">
+  <li><%= @item.get_upvotes.size %> Likes</li>
+  <li><%= @item.get_downvotes.size %> DisLike</li>
+  <li><%= link_to 'Like', like_restaurant_item_path(@restaurant, @item), method: :put, :class => 'btn btn-default' %></li>
+  <li><%= link_to "DisLike", dislike_restaurant_item_path(@restaurant, @item), method: :put, :class => 'btn btn-default' %></li>
+</ul>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               restaurant_items_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
