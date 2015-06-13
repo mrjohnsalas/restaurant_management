@@ -31,6 +31,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = current_user.restaurants.build(restaurant_params)
+    @restaurant.object_type_id = 1
     @restaurant.save
     respond_with(@restaurant)
   end

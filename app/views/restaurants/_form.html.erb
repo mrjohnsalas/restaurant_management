@@ -56,10 +56,6 @@
     <%= f.number_field :min_points %>
   </div>
   <div class="field">
-    <%= f.label :object_type_id %><br />
-    <%= f.collection_select :object_type_id, ObjectType.order(:name),:id,:name, include_blank: true %>
-  </div>
-  <div class="field">
     <%= f.label :logo %><br>
     <%= f.file_field :logo %>
   </div>

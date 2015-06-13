@@ -49,6 +49,7 @@ class ItemsController < ApplicationController
     # respond_with(@item)
     
     @item = @restaurant.items.new(item_params)
+    @item.object_type_id = 2
     @item.save
     redirect_to restaurant_items_path(@restaurant)
   end
