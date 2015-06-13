@@ -1,4 +1,7 @@
-<h1>Shop menus in <%= link_to @local.name, restaurant_local_path(@local.restaurant, @local) %></h1>
+<div class="page-header">
+  <h1>Shop menus in <%= link_to @local.name, restaurant_local_path(@local.restaurant, @local) %></h1>
+</div>
+
 <%= form_tag shop_restaurant_local_menus_path(@local.restaurant, @local), method: :get do %>
 	<p>
 		<%= date_field_tag :search, params[:search] %>
@@ -6,7 +9,7 @@
 	</p>
 <% end %>
 <%= form_tag add_to_shopping_cart_restaurant_local_menus_path(@local.restaurant, @local), method: :put do %>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <% if @today %>
@@ -35,9 +38,9 @@
         <% if @today %>
           <td><%= number_field_tag "quantities[]", "0" %></td>
         <% end %>
-        <td>| <%= link_to 'Show', restaurant_local_menu_path(@local.restaurant, @local, menu) %></td>
-        <td>| <%= link_to 'Edit', edit_restaurant_local_menu_path(@local.restaurant, @local, menu) %></td>
-        <td>| <%= link_to 'Destroy', restaurant_local_menu_path(@local.restaurant, @local, menu), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>| <%= link_to 'Show', restaurant_local_menu_path(@local.restaurant, @local, menu), :class => 'btn btn-default btn-xs' %></td>
+        <td>| <%= link_to 'Edit', edit_restaurant_local_menu_path(@local.restaurant, @local, menu), :class => 'btn btn-success btn-xs' %></td>
+        <td>| <%= link_to 'Destroy', restaurant_local_menu_path(@local.restaurant, @local, menu), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
