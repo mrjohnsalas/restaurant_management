@@ -1,20 +1,65 @@
 <%= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :order_date %>
-  <%= error_span(@order[:order_date]) %>
-  <%= f.input :total_discount %>
-  <%= error_span(@order[:total_discount]) %>
-  <%= f.input :sub_total %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% @sub_total = 0 %>
+  <% @total_discount = 0 %>
+  <% @igv = 0 %>
+  <% @total = 0 %>
+  
+  
+  <%= f.association :payment_type %>
+  <%= error_span(@order[:payment_type]) %>
+  <%= f.label :Cards %>
+  <%= select_tag "user_cards", options_from_collection_for_select(current_user.user_cards.all, "id", "card_number"), prompt: "Please select" %>
+  <%= f.label :Address %>
+  <%= select_tag "user_address", options_from_collection_for_select(current_user.user_addresses.all, "id", "name"), prompt: "Please select" %>
+  
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Item total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.shopping_carts.all.each do |shopping_cart| %>
+      <tr>
+        <td><%= shopping_cart.menu.item.id %></td>
+        <td><%= shopping_cart.menu.item.name %></td>
+        <td><%= shopping_cart.quantity %></td>
+        <td><%= shopping_cart.menu.item.unit_price %></td>
+        <td><%= shopping_cart.quantity * shopping_cart.menu.item.unit_price %></td>
+      </tr>
+    <% @sub_total += shopping_cart.quantity * shopping_cart.menu.item.unit_price %>
+    <% end %>
+  </tbody>
+  
+  <% @total_discount = 0 %>
+  <% @igv = (@sub_total - @total_discount) * 0.18 %>
+  <% @total = (@sub_total - @total_discount) + @igv %>
+  <%= f.input :sub_total, :readonly => true, :input_html => { :value => @sub_total } %>
   <%= error_span(@order[:sub_total]) %>
-  <%= f.input :igv %>
+  <%= f.input :total_discount, :readonly => true, :input_html => { :value => @total_discount } %>
+  <%= error_span(@order[:total_discount]) %>
+  <%= f.input :igv, :readonly => true, :input_html => { :value => @igv } %>
   <%= error_span(@order[:igv]) %>
-  <%= f.input :total %>
+  <%= f.input :total, :readonly => true, :input_html => { :value => @total } %>
   <%= error_span(@order[:total]) %>
-  <%= f.associate :local %>
-  <%= error_span(@order[:local_id]) %>
-  <%= f.associate :payment_type %>
-  <%= error_span(@order[:payment_type_id]) %>
+
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 orders_path, :class => 'btn btn-default' %>
 <% end %>
+

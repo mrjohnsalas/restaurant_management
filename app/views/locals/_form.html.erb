@@ -1,4 +1,4 @@
-<%= simple_form_for @local, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [@restaurant, @local], :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= error_span(@local[:name]) %>
   <%= f.input :phone_1 %>
@@ -19,12 +19,12 @@
   <%= error_span(@local[:allow_reservation]) %>
   <%= f.input :allow_credit_card %>
   <%= error_span(@local[:allow_credit_card]) %>
-  <%= f.input :restaurant_id %>
+  <%= f.association :restaurant %>
   <%= error_span(@local[:restaurant_id]) %>
-  <%= f.input :district_id %>
+  <%= f.association :district %>
   <%= error_span(@local[:district_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                locals_path, :class => 'btn btn-default' %>
+                restaurant_locals_path, :class => 'btn btn-default' %>
 <% end %>

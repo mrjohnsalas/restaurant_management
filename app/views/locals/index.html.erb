@@ -24,7 +24,7 @@
   <tbody>
     <% @locals.each do |local| %>
       <tr>
-        <td><%= link_to local.id, local_path(local) %></td>
+        <td><%= link_to local.id, restaurant_local_path(@restaurant, local) %></td>
         <td><%= local.name %></td>
         <td><%= local.phone_1 %></td>
         <td><%= local.phone_2 %></td>
@@ -35,16 +35,18 @@
         <td><%= local.allow_parking %></td>
         <td><%= local.allow_reservation %></td>
         <td><%= local.allow_credit_card %></td>
-        <td><%= local.restaurant_id %></td>
-        <td><%= local.district_id %></td>
+        <td><%= local.restaurant.name %></td>
+        <td><%= local.district.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_local_path(local), :class => 'btn btn-default btn-xs' %>
+                      edit_restaurant_local_path(@restaurant, local), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      local_path(local),
+                      restaurant_local_path(@restaurant, local),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
+        <td> <%= link_to 'View Menus', restaurant_local_menus_path(@restaurant, local) %></td>
+        <td> <%= link_to 'Shop Menus', shop_restaurant_local_menus_path(@restaurant, local) %></td>
         </td>
       </tr>
     <% end %>
@@ -52,5 +54,9 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_local_path,
+            new_restaurant_local_path,
+            :class => 'btn btn-primary' %>
+            
+<%= link_to t('.back', :default => t("helpers.links.back")),
+            restaurants_path,
             :class => 'btn btn-primary' %>

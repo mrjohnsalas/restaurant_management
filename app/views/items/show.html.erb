@@ -11,19 +11,13 @@
   <dt><strong><%= model_class.human_attribute_name(:unit_price) %>:</strong></dt>
   <dd><%= @item.unit_price %></dd>
   <dt><strong><%= model_class.human_attribute_name(:restaurant_id) %>:</strong></dt>
-  <dd><%= @item.restaurant_id %></dd>
+  <dd><%= @item.restaurant.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:item_category_id) %>:</strong></dt>
-  <dd><%= @item.item_category_id %></dd>
+  <dd><%= @item.item_category.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:food_category_id) %>:</strong></dt>
-  <dd><%= @item.food_category_id %></dd>
+  <dd><%= @item.food_category.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:object_type_id) %>:</strong></dt>
-  <dd><%= @item.object_type_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo_file_name) %>:</strong></dt>
-  <dd><%= @item.photo_file_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo_content_type) %>:</strong></dt>
-  <dd><%= @item.photo_content_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo_file_size) %>:</strong></dt>
-  <dd><%= @item.photo_file_size %></dd>
+  <dd><%= @item.object_type.name %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

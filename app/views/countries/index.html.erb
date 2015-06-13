@@ -23,6 +23,8 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
+          <%= link_to t('.provinces', :default => t("helpers.View_Provinces")),
+                      country_provinces_path(country), :class => 'btn btn-default btn-xs' %>
         </td>
       </tr>
     <% end %>
