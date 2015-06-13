@@ -67,11 +67,12 @@ div {
     list-style: square;
   }
 }
-.navbar.navbar-right{
+.navbar-nav.navbar-right{
     margin-top: 4px;
     
     img{
         max-height: 20px;
         max-width: 20px;
+        overflow:hidden;
     }
 }
