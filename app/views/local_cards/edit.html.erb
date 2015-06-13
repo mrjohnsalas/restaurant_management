@@ -1,6 +1,5 @@
-<h1>Editing local_card</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', restaurant_local_local_card_path(@local.restaurant, @local, @local_card) %> |
-<%= link_to 'Back', restaurant_local_local_cards_path(@local.restaurant, @local) %>
+<%- model_class = LocalCard -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

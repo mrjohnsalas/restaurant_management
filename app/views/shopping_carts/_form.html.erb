@@ -1,29 +1,12 @@
-<%= form_for(@shopping_cart) do |f| %>
-  <% if @shopping_cart.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@shopping_cart.errors.count, "error") %> prohibited this shopping_cart from being saved:</h2>
+<%= simple_form_for @shopping_cart, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :quantity %>
+  <%= error_span(@shopping_cart[:quantity]) %>
+  <%= f.input :menu_id %>
+  <%= error_span(@shopping_cart[:menu_id]) %>
+  <%= f.input :user_id %>
+  <%= error_span(@shopping_cart[:user_id]) %>
 
-      <ul>
-      <% @shopping_cart.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :menu_id %><br>
-    <%= f.text_field :menu_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                shopping_carts_path, :class => 'btn btn-default' %>
 <% end %>

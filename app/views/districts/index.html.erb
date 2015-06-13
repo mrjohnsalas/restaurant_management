@@ -1,34 +1,38 @@
-<h1>Listing districts in <%= link_to @province.name, country_province_path(@province.country, @province) %></h1>
-<%= form_tag country_province_districts_path(@province.country, @province), method: :get do %>
-	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search Districts", name: nil %>
-	</p>
-<% end %>
-<table>
+<%- model_class = District -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:province_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @districts.each do |district| %>
       <tr>
-        <td><%= district.id %></td>
+        <td><%= link_to district.id, district_path(district) %></td>
         <td><%= district.name %></td>
-        <td>| <%= link_to 'Show', country_province_district_path(@province.country, @province, district) %></td>
-        <td>| <%= link_to 'Edit', edit_country_province_district_path(@province.country, @province, district) %></td>
-        <td>| <%= link_to 'Destroy', country_province_district_path(@province.country, @province, district), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= district.province_id %></td>
+        <td><%=l district.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_district_path(district), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      district_path(district),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<%= will_paginate @districts, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
-<br>
-<%= link_to 'New District', new_country_province_district_path(@province.country, @province) %>
-<%= link_to 'Provinces', country_provinces_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_district_path,
+            :class => 'btn btn-primary' %>

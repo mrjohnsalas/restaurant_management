@@ -1,25 +1,10 @@
-<%= form_for([@order, @order_card]) do |f| %>
-  <% if @order_card.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order_card.errors.count, "error") %> prohibited this order_card from being saved:</h2>
+<%= simple_form_for @order_card, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :order_id %>
+  <%= error_span(@order_card[:order_id]) %>
+  <%= f.input :user_card_id %>
+  <%= error_span(@order_card[:user_card_id]) %>
 
-      <ul>
-      <% @order_card.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :order_id %><br>
-    <%= f.text_field :order_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_card_id %><br>
-    <%= f.text_field :user_card_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                order_cards_path, :class => 'btn btn-default' %>
 <% end %>

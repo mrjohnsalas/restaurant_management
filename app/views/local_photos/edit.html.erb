@@ -1,6 +1,5 @@
-<h1>Editing local_photo</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', restaurant_local_local_photo_path(@local.restaurant, @local, @local_photo) %> |
-<%= link_to 'Back', restaurant_local_local_photos_path(@local.restaurant, @local) %>
+<%- model_class = LocalPhoto -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

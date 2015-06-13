@@ -1,25 +1,16 @@
-<%= form_for @credit_card_type, html: { multipart: true } do |f| %>
-  <% if @credit_card_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@credit_card_type.errors.count, "error") %> prohibited this credit_card_type from being saved:</h2>
+<%= simple_form_for @credit_card_type, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@credit_card_type[:name]) %>
+  <%= f.input :logo_file_name %>
+  <%= error_span(@credit_card_type[:logo_file_name]) %>
+  <%= f.input :logo_content_type %>
+  <%= error_span(@credit_card_type[:logo_content_type]) %>
+  <%= f.input :logo_file_size %>
+  <%= error_span(@credit_card_type[:logo_file_size]) %>
+  <%= f.input :logo_updated_at %>
+  <%= error_span(@credit_card_type[:logo_updated_at]) %>
 
-      <ul>
-      <% @credit_card_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :logo %><br>
-    <%= f.file_field :logo %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                credit_card_types_path, :class => 'btn btn-default' %>
 <% end %>

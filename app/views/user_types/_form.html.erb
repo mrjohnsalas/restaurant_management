@@ -1,21 +1,8 @@
-<%= form_for(@user_type) do |f| %>
-  <% if @user_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_type.errors.count, "error") %> prohibited this user_type from being saved:</h2>
+<%= simple_form_for @user_type, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@user_type[:name]) %>
 
-      <ul>
-      <% @user_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_types_path, :class => 'btn btn-default' %>
 <% end %>
