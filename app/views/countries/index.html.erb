@@ -30,10 +30,11 @@ country_provinces_path(country), :class => 'btn btn-default btn-xs' %>
 <% end %>
 </tbody>
 </table>
-
+<% if (current_user != nil and current_user.user_type_id != 3) %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_country_path,
             :class => 'btn btn-primary' %>
 <%= link_to t('.back', :default => t("helpers.links.back")),
             root_path,
             :class => 'btn btn-primary' %>
+<% end %>
