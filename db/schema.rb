@@ -287,6 +287,17 @@ ActiveRecord::Schema.define(version: 20150613192814) do
   add_index "user_cards", ["credit_card_type_id"], name: "index_user_cards_on_credit_card_type_id", using: :btree
   add_index "user_cards", ["user_id"], name: "index_user_cards_on_user_id", using: :btree
 
+  create_table "user_favorites", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "object_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "object_id"
+  end
+
+  add_index "user_favorites", ["object_type_id"], name: "index_user_favorites_on_object_type_id", using: :btree
+  add_index "user_favorites", ["user_id"], name: "index_user_favorites_on_user_id", using: :btree
+
   create_table "user_points", force: true do |t|
     t.integer  "quantity"
     t.integer  "restaurant_id"
