@@ -11,8 +11,6 @@
   <%= error_span(@item[:item_category_id]) %>
   <%= f.association :food_category %>
   <%= error_span(@item[:food_category_id]) %>
-  <%= f.association :object_type %>
-  <%= error_span(@item[:object_type_id]) %>
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 restaurant_items_path, :class => 'btn btn-default' %>

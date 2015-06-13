@@ -49,12 +49,12 @@
 
 <% if @item != nil %>
   <%= link_to t('.new', :default => t("helpers.links.new")), 
-            new_restaurant_item_user_review_path %>,
-            :class => 'btn btn-primary' %>
+            new_restaurant_item_user_review_path,
+            class: 'btn btn-primary' %>
 <% else %>
   <%= link_to t('.new', :default => t("helpers.links.new")), 
-            new_restaurant_user_review_path %>,
-            :class => 'btn btn-primary' %>
+            new_restaurant_user_review_path,
+            class: 'btn btn-primary' %>
 <% end %>
 <script>
  $('.star-rating').raty({

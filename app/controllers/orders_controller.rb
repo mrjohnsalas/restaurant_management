@@ -170,7 +170,7 @@ class OrdersController < ApplicationController
         flash[:notice] = @notice
         respond_with(@order)
       else
-        flash[:error] = @error_message
+        flash[:alert] = @error_message
         redirect_to :back
       end
     end

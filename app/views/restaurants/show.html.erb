@@ -53,18 +53,31 @@
 <%= link_to t('.back', :default => t("helpers.links.back")),
               restaurants_path, :class => 'btn btn-default'  %>
               
-    <div>
-          <% if @user_reviews.blank? %>
-            <h3>No reviews just yet, would you like to add the first!</h3>
-          <% else %>
-            <% @user_reviews.each do |review| %>
-              <div class="reviews">
-                <div class="star-rating" data-score=<%= review.rating %>></div>
-                <p><%= review.comment %></p>
-              </div>
-            <% end %>
-          <% end %>
-      </div>
+<br>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:rating) %></th>
+      <th><%= model_class.human_attribute_name(:comment) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_reviews.each do |user_review| %>
+      <tr>
+        <td><div class="star-rating" data-score=<%= user_review.rating %>></div></td>
+        <td><%= user_review.comment %></td>
+        <td><%= user_review.user.first_name + ' ' + user_review.user.last_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+      
+      
+      
+      
+      
 <script>
  $('.star-rating').raty({
      path: '/assets/',

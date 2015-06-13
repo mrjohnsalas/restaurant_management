@@ -32,5 +32,8 @@ country_provinces_path(country), :class => 'btn btn-default btn-xs' %>
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-new_country_path,
-:class => 'btn btn-primary' %>
+            new_country_path,
+            :class => 'btn btn-primary' %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+            root_path,
+            :class => 'btn btn-primary' %>

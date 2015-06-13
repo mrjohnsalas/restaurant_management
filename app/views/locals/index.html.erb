@@ -8,10 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:phone_1) %></th>
-      <th><%= model_class.human_attribute_name(:phone_2) %></th>
       <th><%= model_class.human_attribute_name(:email_1) %></th>
-      <th><%= model_class.human_attribute_name(:email_2) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:allow_delivery) %></th>
       <th><%= model_class.human_attribute_name(:allow_parking) %></th>
       <th><%= model_class.human_attribute_name(:allow_reservation) %></th>
@@ -27,10 +24,7 @@
         <td><%= link_to local.id, restaurant_local_path(@restaurant, local) %></td>
         <td><%= local.name %></td>
         <td><%= local.phone_1 %></td>
-        <td><%= local.phone_2 %></td>
         <td><%= local.email_1 %></td>
-        <td><%= local.email_2 %></td>
-        <td><%= local.description %></td>
         <td><%= local.allow_delivery %></td>
         <td><%= local.allow_parking %></td>
         <td><%= local.allow_reservation %></td>
