@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "RestaurantManagement" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Restaurant Management" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -45,7 +45,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">RestaurantManagement</a>
+        <a class="navbar-brand" href="#"><img style="width:20px;margin-right:10px;display:inline-block" src="http://www.blogcdn.com//media/2013/08/icon.175x175-75-copy.jpg" title="Restaurant Management">RM</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to 'Home', root_path %></li>
@@ -62,19 +62,19 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
                   <% if current_user.user_type_id == 1 %>
-                    <li role="presentation"><%= link_to 'Countries / Provinces / Districts', countries_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
+                    <li role="presentation"><%= link_to 'Locations', countries_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'Credit Card Types', credit_card_types_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'Object Types', object_types_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'Item Categories', item_categories_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'Food Categories', food_categories_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'My Cards', user_cards_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'My Address', user_addresses_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
-                    <li role="presentation"><%= link_to 'My Restaurants / Locals / Local_Photos / Local_Deliveries / Local_Cards / Items / Menus', restaurants_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
+                    <li role="presentation"><%= link_to 'My Restaurants', restaurants_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'My Points', user_points_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'My Shopping Cart', shopping_carts_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'My Orders', orders_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                   <% elsif current_user.user_type_id == 2 %>
-                    <li role="presentation"><%= link_to 'My Restaurants / Locals / Local_Photos / Local_Deliveries', restaurants_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
+                    <li role="presentation"><%= link_to 'My Restaurants', restaurants_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                   <% elsif current_user.user_type_id == 3 %>
                     <li role="presentation"><%= link_to 'My Cards', user_cards_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
                     <li role="presentation"><%= link_to 'My Address', user_addresses_path,{:role=>"menuitem",:tabindex=>"-1"} %></li>
