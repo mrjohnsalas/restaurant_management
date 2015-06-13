@@ -50,7 +50,7 @@ class UserReviewsController < ApplicationController
       @user_review.object_type_id = @item.object_type_id
       @user_review.user_id = current_user.id
       @user_review.save
-      redirect_to restaurant_item_user_reviews_path(@item.restaurant, @item)
+      redirect_to restaurant_item_path(@item.restaurant, @item)
     else
       @user_review = @restaurant.user_reviews.new(user_review_params)
       @user_review.object_type_id = @restaurant.object_type_id
