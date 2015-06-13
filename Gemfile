@@ -28,11 +28,16 @@ gem 'spring',        group: :development
 gem "paperclip", "~> 4.2"
 gem 'annotate', '~> 2.6.6'
 gem 'devise'
-gem 'will_paginate', '~> 3.0.7'
-gem 'will_paginate-bootstrap', '~> 1.0.1'
-gem 'bootstrap-sass', '~> 3.3.4.1'
+#gem 'will_paginate', '~> 3.0.7'
+#gem 'will_paginate-bootstrap', '~> 1.0.1'
+#gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'acts_as_votable', '~> 0.10.0'
 
+
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
