@@ -42,7 +42,7 @@
 </ul>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               restaurants_path, :class => 'btn btn-default'  %>
-<% if (current_user != nil and current_user.user_type_id == 2) %>
+<% if (current_user != nil and current_user.user_type_id != 3) %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_restaurant_path(@restaurant), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

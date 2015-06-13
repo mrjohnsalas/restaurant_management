@@ -42,9 +42,9 @@
                       :class => 'btn btn-xs btn-danger' %>
 <% end %>
         <td> <%= link_to 'View Menus', restaurant_local_menus_path(@restaurant, local) %></td>
-<% if (current_user != nil and current_user.user_type_id == 3) %>
+
         <td> <%= link_to 'Shop Menus', shop_restaurant_local_menus_path(@restaurant, local) %></td>
-<% end %>        
+
         </td>
       </tr>
     <% end %>

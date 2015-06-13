@@ -4,11 +4,11 @@ class RestaurantsController < ApplicationController
   respond_to :html
   
   def index
-	  if params[:search]
-		  @restaurants = Restaurant.all.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
-	  else
-		  @restaurants = Restaurant.all.paginate(:page => params[:page], :per_page => 5)
-	  end
+	    if params[:search]
+		    @restaurants = Restaurant.all.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+	    else
+		    @restaurants = Restaurant.all.paginate(:page => params[:page], :per_page => 5)
+	    end
   end
 
   def show
