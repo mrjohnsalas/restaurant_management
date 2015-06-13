@@ -35,11 +35,14 @@
 <ul class="likes">
   <li><%= @restaurant.get_upvotes.size %> Likes</li>
   <li><%= @restaurant.get_downvotes.size %> DisLike</li>
-  <li><%= link_to 'Like', like_restaurant_path(@restaurant), method: :put, :class => 'btn btn-default' %></li>
-  <li><%= link_to "DisLike", dislike_restaurant_path(@restaurant), method: :put, :class => 'btn btn-default' %></li>
+  <% if (current_user != nil and current_user.user_type_id == 3) %>
+    <li><%= link_to 'Like', like_restaurant_path(@restaurant), method: :put, :class => 'btn btn-default' %></li>
+    <li><%= link_to "DisLike", dislike_restaurant_path(@restaurant), method: :put, :class => 'btn btn-default' %></li>
+  <% end %>
 </ul>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               restaurants_path, :class => 'btn btn-default'  %>
+<% if (current_user != nil and current_user.user_type_id == 2) %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_restaurant_path(@restaurant), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -47,12 +50,15 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+<% end %>
 <%= link_to t('.local', :default => t("helpers.links.View_locals")),
               restaurant_locals_path(@restaurant), :class => 'btn btn-default' %>
 <%= link_to t('.items', :default => t("helpers.links.View_Items")),
               restaurant_items_path(@restaurant), :class => 'btn btn-default' %>
+<% if (current_user != nil and current_user.user_type_id == 3) %>
 <%= link_to t('.local', :default => t("helpers.links.New_Users_Review")),
               new_restaurant_user_review_path(@restaurant), :class => 'btn btn-default' %>
+<% end %>
 <br>
 <br>
 <table class="table table-striped">
