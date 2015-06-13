@@ -1,7 +1,7 @@
 <%= simple_form_for [@country, @province], :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= error_span(@province[:name]) %>
-  <%= f.input :country_id %>
+  <%= f.association :country %>
   <%= error_span(@province[:country_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>

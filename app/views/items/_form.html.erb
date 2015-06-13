@@ -1,25 +1,19 @@
-<%= simple_form_for @item, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [@restaurant, @item], :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= error_span(@item[:name]) %>
   <%= f.input :unit_cost %>
   <%= error_span(@item[:unit_cost]) %>
   <%= f.input :unit_price %>
   <%= error_span(@item[:unit_price]) %>
-  <%= f.input :restaurant_id %>
+  <%= f.association :restaurant %>
   <%= error_span(@item[:restaurant_id]) %>
-  <%= f.input :item_category_id %>
+  <%= f.association :item_category %>
   <%= error_span(@item[:item_category_id]) %>
-  <%= f.input :food_category_id %>
+  <%= f.association :food_category %>
   <%= error_span(@item[:food_category_id]) %>
-  <%= f.input :object_type_id %>
+  <%= f.association :object_type %>
   <%= error_span(@item[:object_type_id]) %>
-  <%= f.input :photo_file_name %>
-  <%= error_span(@item[:photo_file_name]) %>
-  <%= f.input :photo_content_type %>
-  <%= error_span(@item[:photo_content_type]) %>
-  <%= f.input :photo_file_size %>
-  <%= error_span(@item[:photo_file_size]) %>
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                items_path, :class => 'btn btn-default' %>
+                restaurant_items_path, :class => 'btn btn-default' %>
 <% end %>
