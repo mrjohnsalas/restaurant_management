@@ -11,7 +11,6 @@
       <th><%= model_class.human_attribute_name(:is_default) %></th>
       <th><%= model_class.human_attribute_name(:district_id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -24,7 +23,6 @@
         <td><%= user_address.is_default %></td>
         <td><%= user_address.district_id %></td>
         <td><%= user_address.user_id %></td>
-        <td><%=l user_address.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_address_path(user_address), :class => 'btn btn-default btn-xs' %>

@@ -9,7 +9,6 @@
       <th><%= model_class.human_attribute_name(:quantity) %></th>
       <th><%= model_class.human_attribute_name(:restaurant_id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,7 +19,6 @@
         <td><%= user_point.quantity %></td>
         <td><%= user_point.restaurant_id %></td>
         <td><%= user_point.user_id %></td>
-        <td><%=l user_point.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_point_path(user_point), :class => 'btn btn-default btn-xs' %>
