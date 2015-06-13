@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = UserAddress -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user_address.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @user_address.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @user_address.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:is_default) %>:</strong></dt>
+  <dd><%= @user_address.is_default %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:district_id) %>:</strong></dt>
+  <dd><%= @user_address.district_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @user_address.user_id %></dd>
+</dl>
 
-<p>
-  <strong>Address:</strong>
-  <%= @user_address.address %>
-</p>
-
-<p>
-  <strong>Is default:</strong>
-  <%= @user_address.is_default %>
-</p>
-
-<p>
-  <strong>District:</strong>
-  <%= @user_address.district.name %>
-</p>
-
-<%= link_to 'Edit', edit_user_address_path(@user_address) %> |
-<%= link_to 'Back', user_addresses_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              user_addresses_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_user_address_path(@user_address), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              user_address_path(@user_address),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

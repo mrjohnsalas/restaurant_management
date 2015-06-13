@@ -1,26 +1,18 @@
-<%= form_for([@local.restaurant, @local, @local_photo], html: { multipart: true } ) do |f| %>
+<%= simple_form_for @local_photo, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :index %>
+  <%= error_span(@local_photo[:index]) %>
+  <%= f.input :local_id %>
+  <%= error_span(@local_photo[:local_id]) %>
+  <%= f.input :photo_file_name %>
+  <%= error_span(@local_photo[:photo_file_name]) %>
+  <%= f.input :photo_content_type %>
+  <%= error_span(@local_photo[:photo_content_type]) %>
+  <%= f.input :photo_file_size %>
+  <%= error_span(@local_photo[:photo_file_size]) %>
+  <%= f.input :photo_updated_at %>
+  <%= error_span(@local_photo[:photo_updated_at]) %>
 
-  <% if @local_photo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@local_photo.errors.count, "error") %> prohibited this local_photo from being saved:</h2>
-
-      <ul>
-      <% @local_photo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :index %><br>
-    <%= f.number_field :index %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.file_field :photo %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                local_photos_path, :class => 'btn btn-default' %>
 <% end %>

@@ -1,61 +1,30 @@
-<%= form_for([@restaurant, @local]) do |f| %>
-  <% if @local.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@local.errors.count, "error") %> prohibited this local from being saved:</h2>
+<%= simple_form_for @local, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@local[:name]) %>
+  <%= f.input :phone_1 %>
+  <%= error_span(@local[:phone_1]) %>
+  <%= f.input :phone_2 %>
+  <%= error_span(@local[:phone_2]) %>
+  <%= f.input :email_1 %>
+  <%= error_span(@local[:email_1]) %>
+  <%= f.input :email_2 %>
+  <%= error_span(@local[:email_2]) %>
+  <%= f.input :description %>
+  <%= error_span(@local[:description]) %>
+  <%= f.input :allow_delivery %>
+  <%= error_span(@local[:allow_delivery]) %>
+  <%= f.input :allow_parking %>
+  <%= error_span(@local[:allow_parking]) %>
+  <%= f.input :allow_reservation %>
+  <%= error_span(@local[:allow_reservation]) %>
+  <%= f.input :allow_credit_card %>
+  <%= error_span(@local[:allow_credit_card]) %>
+  <%= f.input :restaurant_id %>
+  <%= error_span(@local[:restaurant_id]) %>
+  <%= f.input :district_id %>
+  <%= error_span(@local[:district_id]) %>
 
-      <ul>
-      <% @local.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_1 %><br>
-    <%= f.text_field :phone_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_2 %><br>
-    <%= f.text_field :phone_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :email_1 %><br>
-    <%= f.text_field :email_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :email_2 %><br>
-    <%= f.text_field :email_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :allow_delivery %><br>
-    <%= f.check_box :allow_delivery %>
-  </div>
-  <div class="field">
-    <%= f.label :allow_parking %><br>
-    <%= f.check_box :allow_parking %>
-  </div>
-  <div class="field">
-    <%= f.label :allow_reservation %><br>
-    <%= f.check_box :allow_reservation %>
-  </div>
-  <div class="field">
-    <%= f.label :allow_credit_card %><br>
-    <%= f.check_box :allow_credit_card %>
-  </div>
-  <div class="field">
-    <%= f.label :"Select Your district" %><br />
-    <%= f.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :name, include_blank: true %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                locals_path, :class => 'btn btn-default' %>
 <% end %>

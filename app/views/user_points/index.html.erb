@@ -1,28 +1,40 @@
-<h1>Listing user_points</h1>
-
-<table>
+<%- model_class = UserPoint -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Quantity</th>
-      <th>Restaurant</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:quantity) %></th>
+      <th><%= model_class.human_attribute_name(:restaurant_id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @user_points.each do |user_point| %>
       <tr>
+        <td><%= link_to user_point.id, user_point_path(user_point) %></td>
         <td><%= user_point.quantity %></td>
-        <td><%= user_point.restaurant.name %></td>
-        <td>| <%= link_to 'Show', user_point %></td>
-        <td>| <%= link_to 'Edit', edit_user_point_path(user_point) %></td>
-        <td>| <%= link_to 'Destroy', user_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user_point.restaurant_id %></td>
+        <td><%= user_point.user_id %></td>
+        <td><%=l user_point.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_point_path(user_point), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_point_path(user_point),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<%= will_paginate @user_points, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
-<br>
-<%= link_to 'New User point', new_user_point_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_user_point_path,
+            :class => 'btn btn-primary' %>

@@ -1,65 +1,30 @@
-<%= form_for @restaurant, html: { multipart: true } do |f| %>
-  <% if @restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+<%= simple_form_for @restaurant, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@restaurant[:name]) %>
+  <%= f.input :phone_1 %>
+  <%= error_span(@restaurant[:phone_1]) %>
+  <%= f.input :phone_2 %>
+  <%= error_span(@restaurant[:phone_2]) %>
+  <%= f.input :email_1 %>
+  <%= error_span(@restaurant[:email_1]) %>
+  <%= f.input :email_2 %>
+  <%= error_span(@restaurant[:email_2]) %>
+  <%= f.input :web_page %>
+  <%= error_span(@restaurant[:web_page]) %>
+  <%= f.input :facebook %>
+  <%= error_span(@restaurant[:facebook]) %>
+  <%= f.input :twitter %>
+  <%= error_span(@restaurant[:twitter]) %>
+  <%= f.input :instagram %>
+  <%= error_span(@restaurant[:instagram]) %>
+  <%= f.input :allow_point %>
+  <%= error_span(@restaurant[:allow_point]) %>
+  <%= f.input :min_points %>
+  <%= error_span(@restaurant[:min_points]) %>
+  <%= f.input :logo, as: :file %>
+  <%= error_span(@restaurant[:logo]) %>
 
-      <ul>
-      <% @restaurant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_1 %><br>
-    <%= f.text_field :phone_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_2 %><br>
-    <%= f.text_field :phone_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :email_1 %><br>
-    <%= f.text_field :email_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :email_2 %><br>
-    <%= f.text_field :email_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :web_page %><br>
-    <%= f.text_field :web_page %>
-  </div>
-  <div class="field">
-    <%= f.label :facebook %><br>
-    <%= f.text_field :facebook %>
-  </div>
-  <div class="field">
-    <%= f.label :twitter %><br>
-    <%= f.text_field :twitter %>
-  </div>
-  <div class="field">
-    <%= f.label :instagram %><br>
-    <%= f.text_field :instagram %>
-  </div>
-  <div class="field">
-    <%= f.label :allow_point %><br>
-    <%= f.check_box :allow_point %>
-  </div>
-  <div class="field">
-    <%= f.label :min_points %><br>
-    <%= f.number_field :min_points %>
-  </div>
-  <div class="field">
-    <%= f.label :logo %><br>
-    <%= f.file_field :logo %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                restaurants_path, :class => 'btn btn-default' %>
 <% end %>

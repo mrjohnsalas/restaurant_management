@@ -1,31 +1,36 @@
-<h1>Listing food_categories</h1>
-<%= form_tag food_categories_path, method: :get do %>
-	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search Food Categories", name: nil %>
-	</p>
-<% end %>
-<table>
+<%- model_class = FoodCategory -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @food_categories.each do |food_category| %>
       <tr>
+        <td><%= link_to food_category.id, food_category_path(food_category) %></td>
         <td><%= food_category.name %></td>
-        <td>| <%= link_to 'Show', food_category %></td>
-        <td>| <%= link_to 'Edit', edit_food_category_path(food_category) %></td>
-        <td>| <%= link_to 'Destroy', food_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l food_category.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_food_category_path(food_category), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      food_category_path(food_category),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<%= will_paginate @food_categories, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
-<br>
-<%= link_to 'New Food category', new_food_category_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_food_category_path,
+            :class => 'btn btn-primary' %>

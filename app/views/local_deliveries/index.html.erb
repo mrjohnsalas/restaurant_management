@@ -1,29 +1,42 @@
-<h1>Listing local_deliveries in <%= link_to @local.name, restaurant_local_path(@local.restaurant, @local) %></h1>
-<table>
+<%- model_class = LocalDelivery -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Start time</th>
-      <th>End time</th>
-      <th>District</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:start_time) %></th>
+      <th><%= model_class.human_attribute_name(:end_time) %></th>
+      <th><%= model_class.human_attribute_name(:local_id) %></th>
+      <th><%= model_class.human_attribute_name(:district_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @local_deliveries.each do |local_delivery| %>
       <tr>
-        <td><%= local_delivery.start_time.strftime("%H:%M") %></td>
-        <td><%= local_delivery.end_time.strftime("%H:%M") %></td>
-        <td><%= local_delivery.district.name %></td>
-        <td>| <%= link_to 'Show', restaurant_local_local_delivery_path(@local.restaurant, @local, local_delivery) %></td>
-        <td>| <%= link_to 'Edit', edit_restaurant_local_local_delivery_path(@local.restaurant, @local, local_delivery) %></td>
-        <td>| <%= link_to 'Destroy', restaurant_local_local_delivery_path(@local.restaurant, @local, local_delivery), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to local_delivery.id, local_delivery_path(local_delivery) %></td>
+        <td><%= local_delivery.start_time %></td>
+        <td><%= local_delivery.end_time %></td>
+        <td><%= local_delivery.local_id %></td>
+        <td><%= local_delivery.district_id %></td>
+        <td><%=l local_delivery.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_local_delivery_path(local_delivery), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      local_delivery_path(local_delivery),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<%= will_paginate @local_deliveries, renderer: BootstrapPagination::Rails, previous_label: "< Anterior", next_label: "Siguiente >" %>
-<br>
-<%= link_to 'New Local delivery', new_restaurant_local_local_delivery_path(@local.restaurant, @local) %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_local_delivery_path,
+            :class => 'btn btn-primary' %>

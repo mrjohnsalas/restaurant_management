@@ -1,25 +1,10 @@
-<%= form_for(@payment_type) do |f| %>
-  <% if @payment_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@payment_type.errors.count, "error") %> prohibited this payment_type from being saved:</h2>
+<%= simple_form_for @payment_type, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@payment_type[:name]) %>
+  <%= f.input :discount %>
+  <%= error_span(@payment_type[:discount]) %>
 
-      <ul>
-      <% @payment_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :discount %><br>
-    <%= f.text_field :discount %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                payment_types_path, :class => 'btn btn-default' %>
 <% end %>

@@ -1,21 +1,8 @@
-<%= form_for(@food_category) do |f| %>
-  <% if @food_category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@food_category.errors.count, "error") %> prohibited this food_category from being saved:</h2>
+<%= simple_form_for @food_category, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@food_category[:name]) %>
 
-      <ul>
-      <% @food_category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                food_categories_path, :class => 'btn btn-default' %>
 <% end %>

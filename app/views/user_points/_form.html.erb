@@ -1,25 +1,12 @@
-<%= form_for(@user_point) do |f| %>
-  <% if @user_point.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_point.errors.count, "error") %> prohibited this user_point from being saved:</h2>
+<%= simple_form_for @user_point, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :quantity %>
+  <%= error_span(@user_point[:quantity]) %>
+  <%= f.input :restaurant_id %>
+  <%= error_span(@user_point[:restaurant_id]) %>
+  <%= f.input :user_id %>
+  <%= error_span(@user_point[:user_id]) %>
 
-      <ul>
-      <% @user_point.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :restaurant_id %><br />
-    <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id,:name, include_blank: true %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_points_path, :class => 'btn btn-default' %>
 <% end %>

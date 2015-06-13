@@ -1,5 +1,5 @@
-<h1>New local_photo</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', restaurant_local_local_photos_path(@local.restaurant, @local) %>
+<%- model_class = LocalPhoto -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

@@ -1,10 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = CreditCardType -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @credit_card_type.name %>
-  <%= image_tag @credit_card_type.logo.url(:medium) %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @credit_card_type.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logo_file_name) %>:</strong></dt>
+  <dd><%= @credit_card_type.logo_file_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logo_content_type) %>:</strong></dt>
+  <dd><%= @credit_card_type.logo_content_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logo_file_size) %>:</strong></dt>
+  <dd><%= @credit_card_type.logo_file_size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logo_updated_at) %>:</strong></dt>
+  <dd><%= @credit_card_type.logo_updated_at %></dd>
+</dl>
 
-<%= link_to 'Edit', edit_credit_card_type_path(@credit_card_type) %> |
-<%= link_to 'Back', credit_card_types_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              credit_card_types_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_credit_card_type_path(@credit_card_type), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              credit_card_type_path(@credit_card_type),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -1,21 +1,10 @@
-<%= form_for([@province.country, @province, @district]) do |f| %>
-  <% if @district.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@district.errors.count, "error") %> prohibited this district from being saved:</h2>
+<%= simple_form_for @district, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@district[:name]) %>
+  <%= f.input :province_id %>
+  <%= error_span(@district[:province_id]) %>
 
-      <ul>
-      <% @district.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                districts_path, :class => 'btn btn-default' %>
 <% end %>

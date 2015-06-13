@@ -1,11 +1,5 @@
-<h1>Editing user_review</h1>
-
-<%= render 'form' %>
-
-<% if @item != nil %>
-    <%= link_to 'Show', restaurant_item_user_review_path(@item.restaurant, @item, @user_review) %> |
-    <%= link_to 'Back', restaurant_item_user_reviews_path(@item.restaurant, @item) %>
-<% else %>
-    <%= link_to 'Show', restaurant_user_review_path(@restaurant, @user_review) %> |
-    <%= link_to 'Back', restaurant_user_reviews_path(@restaurant) %>
-<% end %>
+<%- model_class = UserReview -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>
