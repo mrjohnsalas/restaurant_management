@@ -2,7 +2,7 @@
 
 <div class="page-header rest-head">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-  <a class="btn btn-primary" href="/countries/new">New</a>
+  <a class="btn btn-primary" href="/restaurants/new">New</a>
   <%= form_tag restaurants_path, method: :get, class: 'pull-right' do %>
   	  <%= text_field_tag :search, params[:search], class: 'form-control' %>
   		<%= submit_tag "Search Restaurants", name: nil, class: 'form-control' %>

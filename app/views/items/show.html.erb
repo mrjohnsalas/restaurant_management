@@ -16,8 +16,6 @@
   <dd><%= @item.item_category.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:food_category_id) %>:</strong></dt>
   <dd><%= @item.food_category.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:object_type_id) %>:</strong></dt>
-  <dd><%= @item.object_type.name %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

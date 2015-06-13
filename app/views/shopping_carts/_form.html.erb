@@ -1,7 +1,7 @@
 <%= simple_form_for @shopping_cart, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :quantity %>
   <%= error_span(@shopping_cart[:quantity]) %>
-  <%= f.input :menu_id %>
+  <%= f.association :menu %>
   <%= error_span(@shopping_cart[:menu_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
