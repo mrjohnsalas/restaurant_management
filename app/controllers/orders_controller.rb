@@ -159,7 +159,7 @@ class OrdersController < ApplicationController
           end
         end
         #ELIMINO LOS ITEMS DE MI CARRITO DE COMPRAS
-        #@shopping_carts.destroy.all
+        @shopping_carts.delete_all
         @is_ok = true
         @notice = "Success!"
       end
