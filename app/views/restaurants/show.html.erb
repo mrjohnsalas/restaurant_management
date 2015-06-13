@@ -25,9 +25,9 @@
   <dt><strong><%= model_class.human_attribute_name(:allow_point) %>:</strong></dt>
   <dd><%= @restaurant.allow_point %></dd>
   <dt><strong><%= model_class.human_attribute_name(:min_points) %>:</strong></dt>
-  <dd><%= @restaurant.min_points %></dd>
+  <dd><%= @restaurant.min_points %></dd><br>
   <dt><strong><%= model_class.human_attribute_name(:logo) %>:</strong></dt>
-  <dd><%= image_tag @restaurant.logo.url(:medium) %></dd>
+  <dd><%= image_tag @restaurant.logo.url(:medium) %></dd><br>
   <dt><strong><%= model_class.human_attribute_name(:reviews) %>:</strong></dt>
   <dd><div class="restaurant_detail star-rating" data-score=<%= @user_reviews.length %>></div></dd>
   <dd><em><%= "#{@user_reviews.length} reviews" %></em></dd>
