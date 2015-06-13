@@ -32,7 +32,10 @@
   <dd><div class="star-rating" data-score=<%= @avg_review %>></div></dd>
   <dd><em><%= "#{@user_reviews.length} reviews" %></em></dd>
 </dl>
-
+<p><%= @restaurant.get_upvotes.size %> Likes</p>
+<p><%= @restaurant.get_downvotes.size %> DisLike</p>
+<%= link_to 'Like', like_restaurant_path(@restaurant), method: :put %> |
+<%= link_to "DisLike", dislike_restaurant_path(@restaurant), method: :put %><br><br>
 
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_restaurant_path(@restaurant), :class => 'btn btn-default' %>
@@ -49,7 +52,19 @@
               restaurant_items_path(@restaurant), :class => 'btn btn-default' %>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               restaurants_path, :class => 'btn btn-default'  %>
-
+              
+    <div>
+          <% if @user_reviews.blank? %>
+            <h3>No reviews just yet, would you like to add the first!</h3>
+          <% else %>
+            <% @user_reviews.each do |review| %>
+              <div class="reviews">
+                <div class="star-rating" data-score=<%= review.rating %>></div>
+                <p><%= review.comment %></p>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
 <script>
  $('.star-rating').raty({
      path: '/assets/',

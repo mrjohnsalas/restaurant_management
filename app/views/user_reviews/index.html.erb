@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><%= model_class.human_attribute_name(:user_review_id) %></th>
       <th><%= model_class.human_attribute_name(:rating) %></th>
       <th><%= model_class.human_attribute_name(:comment) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -19,7 +20,7 @@
         <% if user_review.restaurant != nil %>
         <td><%= link_to user_review.id, restaurant_user_review_path(@restaurant, user_review) %></td>
         <% end %>
-        <td><%= user_review.rating %></td>
+        <td><div class="star-rating" data-score=<%= user_review.rating %>></div></td>
         <td><%= user_review.comment %></td>
         <td>
         <% if user_review.item != nil %>
@@ -55,3 +56,12 @@
             new_restaurant_user_review_path %>,
             :class => 'btn btn-primary' %>
 <% end %>
+<script>
+ $('.star-rating').raty({
+     path: '/assets/',
+     readOnly: true,
+     score: function(){
+         return $(this).attr('data-score')
+     }
+ });
+</script>

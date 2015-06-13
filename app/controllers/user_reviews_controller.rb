@@ -9,10 +9,10 @@ class UserReviewsController < ApplicationController
     # @user_reviews = UserReview.all
     # respond_with(@user_reviews)
     if @item != nil
-      @user_reviews = @item.user_reviews.paginate(:page => params[:page], :per_page => 5)
+      @user_reviews = @item.user_reviews.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
       respond_with(@item, @user_reviews)
     else
-      @user_reviews = @restaurant.user_reviews.paginate(:page => params[:page], :per_page => 5)
+      @user_reviews = @restaurant.user_reviews.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
       respond_with(@restaurant, @user_reviews)
     end
   end
