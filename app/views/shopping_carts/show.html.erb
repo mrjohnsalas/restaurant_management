@@ -7,9 +7,8 @@
   <dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
   <dd><%= @shopping_cart.quantity %></dd>
   <dt><strong><%= model_class.human_attribute_name(:menu_id) %>:</strong></dt>
-  <dd><%= @shopping_cart.menu_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @shopping_cart.user_id %></dd>
+  <dd><%= @shopping_cart.menu.item.name %></dd>
+
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

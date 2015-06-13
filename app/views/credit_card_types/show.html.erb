@@ -6,13 +6,10 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @credit_card_type.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:logo_file_name) %>:</strong></dt>
-  <dd><%= @credit_card_type.logo_file_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:logo_content_type) %>:</strong></dt>
-  <dd><%= @credit_card_type.logo_content_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:logo_file_size) %>:</strong></dt>
-  <dd><%= @credit_card_type.logo_file_size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logo) %>:</strong></dt>
+  <dd><%= image_tag @credit_card_type.logo.url(:thumb) %></dd>
 </dl>
+
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               credit_card_types_path, :class => 'btn btn-default'  %>

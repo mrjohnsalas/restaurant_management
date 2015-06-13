@@ -9,11 +9,9 @@
   <%= error_span(@order[:igv]) %>
   <%= f.input :total %>
   <%= error_span(@order[:total]) %>
-  <%= f.input :local_id %>
+  <%= f.associate :local %>
   <%= error_span(@order[:local_id]) %>
-  <%= f.input :user_id %>
-  <%= error_span(@order[:user_id]) %>
-  <%= f.input :payment_type_id %>
+  <%= f.associate :payment_type %>
   <%= error_span(@order[:payment_type_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>

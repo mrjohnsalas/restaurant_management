@@ -8,7 +8,6 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:quantity) %></th>
       <th><%= model_class.human_attribute_name(:menu_id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,8 +16,7 @@
       <tr>
         <td><%= link_to shopping_cart.id, shopping_cart_path(shopping_cart) %></td>
         <td><%= shopping_cart.quantity %></td>
-        <td><%= shopping_cart.menu_id %></td>
-        <td><%= shopping_cart.user_id %></td>
+        <td><%= shopping_cart.menu.item.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_shopping_cart_path(shopping_cart), :class => 'btn btn-default btn-xs' %>

@@ -8,8 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:card_number) %></th>
       <th><%= model_class.human_attribute_name(:is_default) %></th>
-      <th><%= model_class.human_attribute_name(:credit_card_type_id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:credit_card_type) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,8 +18,7 @@
         <td><%= link_to user_card.id, user_card_path(user_card) %></td>
         <td><%= user_card.card_number %></td>
         <td><%= user_card.is_default %></td>
-        <td><%= user_card.credit_card_type_id %></td>
-        <td><%= user_card.user_id %></td>
+        <td><%= user_card.credit_card_type.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_card_path(user_card), :class => 'btn btn-default btn-xs' %>

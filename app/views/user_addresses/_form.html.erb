@@ -5,10 +5,8 @@
   <%= error_span(@user_address[:address]) %>
   <%= f.input :is_default %>
   <%= error_span(@user_address[:is_default]) %>
-  <%= f.input :district_id %>
+  <%= f.associate :district %>
   <%= error_span(@user_address[:district_id]) %>
-  <%= f.input :user_id %>
-  <%= error_span(@user_address[:user_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

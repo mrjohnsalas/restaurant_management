@@ -3,10 +3,8 @@
   <%= error_span(@user_card[:card_number]) %>
   <%= f.input :is_default %>
   <%= error_span(@user_card[:is_default]) %>
-  <%= f.input :credit_card_type_id %>
+  <%= f.associate :credit_card_type %>
   <%= error_span(@user_card[:credit_card_type_id]) %>
-  <%= f.input :user_id %>
-  <%= error_span(@user_card[:user_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

@@ -26,6 +26,8 @@
   <dd><%= @restaurant.allow_point %></dd>
   <dt><strong><%= model_class.human_attribute_name(:min_points) %>:</strong></dt>
   <dd><%= @restaurant.min_points %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logo) %>:</strong></dt>
+  <dd><%= image_tag @restaurant.logo.url(:thumb) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
