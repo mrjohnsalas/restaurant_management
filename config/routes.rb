@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :contacts
+
+  resources :abouts
+
   resources :orders do
     resources :order_details
     resources :order_deliveries  
