@@ -29,7 +29,7 @@
   <dt><strong><%= model_class.human_attribute_name(:logo) %>:</strong></dt>
   <dd><%= image_tag @restaurant.logo.url(:medium) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:reviews) %>:</strong></dt>
-  <dd><div class="star-rating" data-score=<%= @user_reviews.length %>></div></dd>
+  <dd><div class="restaurant_detail star-rating" data-score=<%= @user_reviews.length %>></div></dd>
   <dd><em><%= "#{@user_reviews.length} reviews" %></em></dd>
 </dl>
 <p><%= @restaurant.get_upvotes.size %> Likes</p>
