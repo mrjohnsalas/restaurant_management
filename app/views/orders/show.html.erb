@@ -15,11 +15,9 @@
   <dt><strong><%= model_class.human_attribute_name(:total) %>:</strong></dt>
   <dd><%= @order.total %></dd>
   <dt><strong><%= model_class.human_attribute_name(:local_id) %>:</strong></dt>
-  <dd><%= @order.local_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @order.user_id %></dd>
+  <dd><%= @order.local.restaurant.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:payment_type_id) %>:</strong></dt>
-  <dd><%= @order.payment_type_id %></dd>
+  <dd><%= @order.payment_type.name %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

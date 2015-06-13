@@ -3,8 +3,6 @@
   <%= error_span(@shopping_cart[:quantity]) %>
   <%= f.input :menu_id %>
   <%= error_span(@shopping_cart[:menu_id]) %>
-  <%= f.input :user_id %>
-  <%= error_span(@shopping_cart[:user_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

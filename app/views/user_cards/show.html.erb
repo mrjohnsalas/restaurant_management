@@ -8,10 +8,8 @@
   <dd><%= @user_card.card_number %></dd>
   <dt><strong><%= model_class.human_attribute_name(:is_default) %>:</strong></dt>
   <dd><%= @user_card.is_default %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:credit_card_type_id) %>:</strong></dt>
-  <dd><%= @user_card.credit_card_type_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @user_card.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:credit_card_type) %>:</strong></dt>
+  <dd><%= @user_card.credit_card_type.name %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

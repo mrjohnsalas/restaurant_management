@@ -7,9 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
   <dd><%= @user_point.quantity %></dd>
   <dt><strong><%= model_class.human_attribute_name(:restaurant_id) %>:</strong></dt>
-  <dd><%= @user_point.restaurant_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @user_point.user_id %></dd>
+  <dd><%= @user_point.restaurant.name %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
