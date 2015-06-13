@@ -1,11 +1,17 @@
 // Place all the styles related to the menus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.navbar.navbar-right{
-    margin-top: 4px;
+.topper{
     
-    img{
-        max-height: 20px;
-        max-width: 20px;
+    .notice{
+        margin: 0;
     }
+    .alert{
+        margin: 0;
+        padding: 0;
+    }
+}
+.search{
+    
+    text-align: right;
 }
