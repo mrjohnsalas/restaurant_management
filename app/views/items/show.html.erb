@@ -16,7 +16,10 @@
   <dd><%= @item.item_category.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:food_category_id) %>:</strong></dt>
   <dd><%= @item.food_category.name %></dd>
-  <dd><div class="star-rating" data-score=<%= @user_reviews.length %>></div></dd>
+  <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
+  <dd><%= image_tag @item.photo.url(:medium) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:reviews) %>:</strong></dt>
+  <dd><div class="star-rating restaurant_detail" data-score=<%= @user_reviews.length %>></div></dd>
   <dd><em><%= "#{@user_reviews.length} reviews" %></em></dd>
 </dl>
 
