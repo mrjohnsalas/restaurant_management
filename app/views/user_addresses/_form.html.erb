@@ -5,7 +5,7 @@
   <%= error_span(@user_address[:address]) %>
   <%= f.input :is_default %>
   <%= error_span(@user_address[:is_default]) %>
-  <%= f.associate :district %>
+  <%= f.association :district %>
   <%= error_span(@user_address[:district_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>

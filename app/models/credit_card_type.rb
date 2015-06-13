@@ -13,7 +13,7 @@
 #
 
 class CreditCardType < ActiveRecord::Base
-    has_attached_file :logo, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#" }
+    has_attached_file :logo, styles: { large: "600x600>", medium: "300x300>", thumb: "75x75#" }
     validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
     validates :name, presence: true
     has_many :user_cards, dependent: :destroy
